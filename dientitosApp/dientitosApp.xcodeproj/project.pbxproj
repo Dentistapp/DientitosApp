@@ -1,0 +1,794 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0263F34B344B063E9BE439EB /* Pods_dientitosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B381DE401F80AF5A0BC461 /* Pods_dientitosApp.framework */; };
+		3A28D78021EFB78B0082AF77 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28D77F21EFB78B0082AF77 /* AlertController.swift */; };
+		58F50C502AE88B15324A7930 /* Pods_dientitosAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77B31503AB7887E2C36037D /* Pods_dientitosAppTests.framework */; };
+		9B4B504621E165A8000913E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B504521E165A8000913E7 /* AppDelegate.swift */; };
+		9B4B504821E165A8000913E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B504721E165A8000913E7 /* ViewController.swift */; };
+		9B4B504B21E165A8000913E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4B504921E165A8000913E7 /* Main.storyboard */; };
+		9B4B504D21E165A9000913E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B4B504C21E165A9000913E7 /* Assets.xcassets */; };
+		9B4B505021E165A9000913E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4B504E21E165A9000913E7 /* LaunchScreen.storyboard */; };
+		9B4B505B21E165A9000913E7 /* dientitosAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B505A21E165A9000913E7 /* dientitosAppTests.swift */; };
+		9B4B506621E165A9000913E7 /* dientitosAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B506521E165A9000913E7 /* dientitosAppUITests.swift */; };
+		9B4B507921E16A4A000913E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B4B507821E16A4A000913E7 /* GoogleService-Info.plist */; };
+		9B4B507B21E82A39000913E7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B507A21E82A39000913E7 /* RegisterViewController.swift */; };
+		9B4B507D21E82B1A000913E7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B507C21E82B1A000913E7 /* HomeViewController.swift */; };
+		9B4B507F21E82B2A000913E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B507E21E82B2A000913E7 /* LoginViewController.swift */; };
+		BDB890E34E39935EEC9510E1 /* Pods_dientitosAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0014D6619DC308B8B5A5BC35 /* Pods_dientitosAppUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9B4B505721E165A9000913E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B4B503A21E165A8000913E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B4B504121E165A8000913E7;
+			remoteInfo = dientitosApp;
+		};
+		9B4B506221E165A9000913E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B4B503A21E165A8000913E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B4B504121E165A8000913E7;
+			remoteInfo = dientitosApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0014D6619DC308B8B5A5BC35 /* Pods_dientitosAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dientitosAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F400E30B3338B65DC2BFB1F /* Pods-dientitosAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dientitosAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dientitosAppUITests/Pods-dientitosAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3A28D77F21EFB78B0082AF77 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		592A41126DABF6EAC91AA5E5 /* Pods-dientitosAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dientitosAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dientitosAppTests/Pods-dientitosAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		6B61E573C24A79DA8D6E7958 /* Pods-dientitosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dientitosApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-dientitosApp/Pods-dientitosApp.release.xcconfig"; sourceTree = "<group>"; };
+		70B65A9F25984C242F0C9AF9 /* Pods-dientitosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dientitosApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dientitosApp/Pods-dientitosApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8E5FBB4FC455EA952740DC6C /* Pods-dientitosAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dientitosAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dientitosAppUITests/Pods-dientitosAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9B4B504221E165A8000913E7 /* dientitosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dientitosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B4B504521E165A8000913E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9B4B504721E165A8000913E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9B4B504A21E165A8000913E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9B4B504C21E165A9000913E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9B4B504F21E165A9000913E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9B4B505121E165A9000913E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B4B505621E165A9000913E7 /* dientitosAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dientitosAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B4B505A21E165A9000913E7 /* dientitosAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dientitosAppTests.swift; sourceTree = "<group>"; };
+		9B4B505C21E165A9000913E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B4B506121E165A9000913E7 /* dientitosAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dientitosAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B4B506521E165A9000913E7 /* dientitosAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dientitosAppUITests.swift; sourceTree = "<group>"; };
+		9B4B506721E165A9000913E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B4B507821E16A4A000913E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9B4B507A21E82A39000913E7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		9B4B507C21E82B1A000913E7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9B4B507E21E82B2A000913E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A2B381DE401F80AF5A0BC461 /* Pods_dientitosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dientitosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB18B467A107A7906FA10376 /* Pods-dientitosAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dientitosAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dientitosAppTests/Pods-dientitosAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B77B31503AB7887E2C36037D /* Pods_dientitosAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dientitosAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B4B503F21E165A8000913E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0263F34B344B063E9BE439EB /* Pods_dientitosApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B4B505321E165A9000913E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58F50C502AE88B15324A7930 /* Pods_dientitosAppTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B4B505E21E165A9000913E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDB890E34E39935EEC9510E1 /* Pods_dientitosAppUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		41E938F4A4B76C1410EBAD54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				70B65A9F25984C242F0C9AF9 /* Pods-dientitosApp.debug.xcconfig */,
+				6B61E573C24A79DA8D6E7958 /* Pods-dientitosApp.release.xcconfig */,
+				AB18B467A107A7906FA10376 /* Pods-dientitosAppTests.debug.xcconfig */,
+				592A41126DABF6EAC91AA5E5 /* Pods-dientitosAppTests.release.xcconfig */,
+				2F400E30B3338B65DC2BFB1F /* Pods-dientitosAppUITests.debug.xcconfig */,
+				8E5FBB4FC455EA952740DC6C /* Pods-dientitosAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		50F1168AF598369AC87C7289 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2B381DE401F80AF5A0BC461 /* Pods_dientitosApp.framework */,
+				B77B31503AB7887E2C36037D /* Pods_dientitosAppTests.framework */,
+				0014D6619DC308B8B5A5BC35 /* Pods_dientitosAppUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B4B503921E165A8000913E7 = {
+			isa = PBXGroup;
+			children = (
+				9B4B504421E165A8000913E7 /* dientitosApp */,
+				9B4B505921E165A9000913E7 /* dientitosAppTests */,
+				9B4B506421E165A9000913E7 /* dientitosAppUITests */,
+				9B4B504321E165A8000913E7 /* Products */,
+				41E938F4A4B76C1410EBAD54 /* Pods */,
+				50F1168AF598369AC87C7289 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9B4B504321E165A8000913E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B4B504221E165A8000913E7 /* dientitosApp.app */,
+				9B4B505621E165A9000913E7 /* dientitosAppTests.xctest */,
+				9B4B506121E165A9000913E7 /* dientitosAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B4B504421E165A8000913E7 /* dientitosApp */ = {
+			isa = PBXGroup;
+			children = (
+				9B4B507721E16725000913E7 /* Storyboard */,
+				9B4B507621E16717000913E7 /* Controllers */,
+				9B4B507521E16710000913E7 /* Models */,
+				9B4B504521E165A8000913E7 /* AppDelegate.swift */,
+				9B4B504721E165A8000913E7 /* ViewController.swift */,
+				9B4B504C21E165A9000913E7 /* Assets.xcassets */,
+				9B4B504E21E165A9000913E7 /* LaunchScreen.storyboard */,
+				9B4B505121E165A9000913E7 /* Info.plist */,
+				9B4B507821E16A4A000913E7 /* GoogleService-Info.plist */,
+			);
+			path = dientitosApp;
+			sourceTree = "<group>";
+		};
+		9B4B505921E165A9000913E7 /* dientitosAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B4B505A21E165A9000913E7 /* dientitosAppTests.swift */,
+				9B4B505C21E165A9000913E7 /* Info.plist */,
+			);
+			path = dientitosAppTests;
+			sourceTree = "<group>";
+		};
+		9B4B506421E165A9000913E7 /* dientitosAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9B4B506521E165A9000913E7 /* dientitosAppUITests.swift */,
+				9B4B506721E165A9000913E7 /* Info.plist */,
+			);
+			path = dientitosAppUITests;
+			sourceTree = "<group>";
+		};
+		9B4B507521E16710000913E7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3A28D77F21EFB78B0082AF77 /* AlertController.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9B4B507621E16717000913E7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B4B507A21E82A39000913E7 /* RegisterViewController.swift */,
+				9B4B507E21E82B2A000913E7 /* LoginViewController.swift */,
+				9B4B507C21E82B1A000913E7 /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9B4B507721E16725000913E7 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9B4B504921E165A8000913E7 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9B4B504121E165A8000913E7 /* dientitosApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B4B506A21E165A9000913E7 /* Build configuration list for PBXNativeTarget "dientitosApp" */;
+			buildPhases = (
+				903E4B531EB7E45FBB36304B /* [CP] Check Pods Manifest.lock */,
+				9B4B503E21E165A8000913E7 /* Sources */,
+				9B4B503F21E165A8000913E7 /* Frameworks */,
+				9B4B504021E165A8000913E7 /* Resources */,
+				C8230606B3DD86407F1A2A45 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dientitosApp;
+			productName = dientitosApp;
+			productReference = 9B4B504221E165A8000913E7 /* dientitosApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9B4B505521E165A9000913E7 /* dientitosAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B4B506D21E165A9000913E7 /* Build configuration list for PBXNativeTarget "dientitosAppTests" */;
+			buildPhases = (
+				6AFC8DA7CAD29C3BFB4EE0D6 /* [CP] Check Pods Manifest.lock */,
+				9B4B505221E165A9000913E7 /* Sources */,
+				9B4B505321E165A9000913E7 /* Frameworks */,
+				9B4B505421E165A9000913E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B4B505821E165A9000913E7 /* PBXTargetDependency */,
+			);
+			name = dientitosAppTests;
+			productName = dientitosAppTests;
+			productReference = 9B4B505621E165A9000913E7 /* dientitosAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9B4B506021E165A9000913E7 /* dientitosAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B4B507021E165A9000913E7 /* Build configuration list for PBXNativeTarget "dientitosAppUITests" */;
+			buildPhases = (
+				BD2EC53F1111DA9588B6C132 /* [CP] Check Pods Manifest.lock */,
+				9B4B505D21E165A9000913E7 /* Sources */,
+				9B4B505E21E165A9000913E7 /* Frameworks */,
+				9B4B505F21E165A9000913E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B4B506321E165A9000913E7 /* PBXTargetDependency */,
+			);
+			name = dientitosAppUITests;
+			productName = dientitosAppUITests;
+			productReference = 9B4B506121E165A9000913E7 /* dientitosAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B4B503A21E165A8000913E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = DentistaApp;
+				TargetAttributes = {
+					9B4B504121E165A8000913E7 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					9B4B505521E165A9000913E7 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 9B4B504121E165A8000913E7;
+					};
+					9B4B506021E165A9000913E7 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 9B4B504121E165A8000913E7;
+					};
+				};
+			};
+			buildConfigurationList = 9B4B503D21E165A8000913E7 /* Build configuration list for PBXProject "dientitosApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9B4B503921E165A8000913E7;
+			productRefGroup = 9B4B504321E165A8000913E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B4B504121E165A8000913E7 /* dientitosApp */,
+				9B4B505521E165A9000913E7 /* dientitosAppTests */,
+				9B4B506021E165A9000913E7 /* dientitosAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B4B504021E165A8000913E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4B505021E165A9000913E7 /* LaunchScreen.storyboard in Resources */,
+				9B4B504D21E165A9000913E7 /* Assets.xcassets in Resources */,
+				9B4B507921E16A4A000913E7 /* GoogleService-Info.plist in Resources */,
+				9B4B504B21E165A8000913E7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B4B505421E165A9000913E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B4B505F21E165A9000913E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6AFC8DA7CAD29C3BFB4EE0D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dientitosAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		903E4B531EB7E45FBB36304B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dientitosApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD2EC53F1111DA9588B6C132 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dientitosAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8230606B3DD86407F1A2A45 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-dientitosApp/Pods-dientitosApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-dientitosApp/Pods-dientitosApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B4B503E21E165A8000913E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4B507B21E82A39000913E7 /* RegisterViewController.swift in Sources */,
+				9B4B504821E165A8000913E7 /* ViewController.swift in Sources */,
+				9B4B504621E165A8000913E7 /* AppDelegate.swift in Sources */,
+				9B4B507F21E82B2A000913E7 /* LoginViewController.swift in Sources */,
+				3A28D78021EFB78B0082AF77 /* AlertController.swift in Sources */,
+				9B4B507D21E82B1A000913E7 /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B4B505221E165A9000913E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4B505B21E165A9000913E7 /* dientitosAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B4B505D21E165A9000913E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4B506621E165A9000913E7 /* dientitosAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B4B505821E165A9000913E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B4B504121E165A8000913E7 /* dientitosApp */;
+			targetProxy = 9B4B505721E165A9000913E7 /* PBXContainerItemProxy */;
+		};
+		9B4B506321E165A9000913E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B4B504121E165A8000913E7 /* dientitosApp */;
+			targetProxy = 9B4B506221E165A9000913E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9B4B504921E165A8000913E7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B4B504A21E165A8000913E7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9B4B504E21E165A9000913E7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B4B504F21E165A9000913E7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9B4B506821E165A9000913E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9B4B506921E165A9000913E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9B4B506B21E165A9000913E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70B65A9F25984C242F0C9AF9 /* Pods-dientitosApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = dientitosApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DA.dientitosApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9B4B506C21E165A9000913E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B61E573C24A79DA8D6E7958 /* Pods-dientitosApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = dientitosApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DA.dientitosApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9B4B506E21E165A9000913E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB18B467A107A7906FA10376 /* Pods-dientitosAppTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = dientitosAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DA.dientitosAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dientitosApp.app/dientitosApp";
+			};
+			name = Debug;
+		};
+		9B4B506F21E165A9000913E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 592A41126DABF6EAC91AA5E5 /* Pods-dientitosAppTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = dientitosAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DA.dientitosAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dientitosApp.app/dientitosApp";
+			};
+			name = Release;
+		};
+		9B4B507121E165A9000913E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F400E30B3338B65DC2BFB1F /* Pods-dientitosAppUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = dientitosAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DA.dientitosAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dientitosApp;
+			};
+			name = Debug;
+		};
+		9B4B507221E165A9000913E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E5FBB4FC455EA952740DC6C /* Pods-dientitosAppUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = dientitosAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = DA.dientitosAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = dientitosApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B4B503D21E165A8000913E7 /* Build configuration list for PBXProject "dientitosApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B4B506821E165A9000913E7 /* Debug */,
+				9B4B506921E165A9000913E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B4B506A21E165A9000913E7 /* Build configuration list for PBXNativeTarget "dientitosApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B4B506B21E165A9000913E7 /* Debug */,
+				9B4B506C21E165A9000913E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B4B506D21E165A9000913E7 /* Build configuration list for PBXNativeTarget "dientitosAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B4B506E21E165A9000913E7 /* Debug */,
+				9B4B506F21E165A9000913E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B4B507021E165A9000913E7 /* Build configuration list for PBXNativeTarget "dientitosAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B4B507121E165A9000913E7 /* Debug */,
+				9B4B507221E165A9000913E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B4B503A21E165A8000913E7 /* Project object */;
+}

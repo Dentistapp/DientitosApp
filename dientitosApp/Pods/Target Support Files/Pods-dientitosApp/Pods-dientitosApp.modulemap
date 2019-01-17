@@ -1,0 +1,6 @@
+framework module Pods_dientitosApp {
+  umbrella header "Pods-dientitosApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
