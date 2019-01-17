@@ -10,6 +10,12 @@
 		0263F34B344B063E9BE439EB /* Pods_dientitosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B381DE401F80AF5A0BC461 /* Pods_dientitosApp.framework */; };
 		3A28D78021EFB78B0082AF77 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28D77F21EFB78B0082AF77 /* AlertController.swift */; };
 		58F50C502AE88B15324A7930 /* Pods_dientitosAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77B31503AB7887E2C36037D /* Pods_dientitosAppTests.framework */; };
+		9B31A5F521F06274001DAE3A /* PatientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31A5F421F06274001DAE3A /* PatientsViewController.swift */; };
+		9B31A5F721F06288001DAE3A /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31A5F621F06288001DAE3A /* CalendarViewController.swift */; };
+		9B31A5F921F06295001DAE3A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31A5F821F06295001DAE3A /* PerfilViewController.swift */; };
+		9B31A5FB21F062A9001DAE3A /* Patients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B31A5FA21F062A9001DAE3A /* Patients.storyboard */; };
+		9B31A5FD21F062B6001DAE3A /* Perfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B31A5FC21F062B6001DAE3A /* Perfil.storyboard */; };
+		9B31A5FF21F062CB001DAE3A /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B31A5FE21F062CB001DAE3A /* Calendar.storyboard */; };
 		9B4B504621E165A8000913E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B504521E165A8000913E7 /* AppDelegate.swift */; };
 		9B4B504821E165A8000913E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B504721E165A8000913E7 /* ViewController.swift */; };
 		9B4B504B21E165A8000913E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B4B504921E165A8000913E7 /* Main.storyboard */; };
@@ -49,6 +55,12 @@
 		6B61E573C24A79DA8D6E7958 /* Pods-dientitosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dientitosApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-dientitosApp/Pods-dientitosApp.release.xcconfig"; sourceTree = "<group>"; };
 		70B65A9F25984C242F0C9AF9 /* Pods-dientitosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dientitosApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dientitosApp/Pods-dientitosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8E5FBB4FC455EA952740DC6C /* Pods-dientitosAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dientitosAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-dientitosAppUITests/Pods-dientitosAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9B31A5F421F06274001DAE3A /* PatientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientsViewController.swift; sourceTree = "<group>"; };
+		9B31A5F621F06288001DAE3A /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		9B31A5F821F06295001DAE3A /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
+		9B31A5FA21F062A9001DAE3A /* Patients.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Patients.storyboard; sourceTree = "<group>"; };
+		9B31A5FC21F062B6001DAE3A /* Perfil.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Perfil.storyboard; sourceTree = "<group>"; };
+		9B31A5FE21F062CB001DAE3A /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		9B4B504221E165A8000913E7 /* dientitosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dientitosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B4B504521E165A8000913E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B4B504721E165A8000913E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -190,8 +202,11 @@
 			isa = PBXGroup;
 			children = (
 				9B4B507A21E82A39000913E7 /* RegisterViewController.swift */,
+				9B31A5F421F06274001DAE3A /* PatientsViewController.swift */,
 				9B4B507E21E82B2A000913E7 /* LoginViewController.swift */,
 				9B4B507C21E82B1A000913E7 /* HomeViewController.swift */,
+				9B31A5F621F06288001DAE3A /* CalendarViewController.swift */,
+				9B31A5F821F06295001DAE3A /* PerfilViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -200,6 +215,9 @@
 			isa = PBXGroup;
 			children = (
 				9B4B504921E165A8000913E7 /* Main.storyboard */,
+				9B31A5FA21F062A9001DAE3A /* Patients.storyboard */,
+				9B31A5FC21F062B6001DAE3A /* Perfil.storyboard */,
+				9B31A5FE21F062CB001DAE3A /* Calendar.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -312,10 +330,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B31A5FB21F062A9001DAE3A /* Patients.storyboard in Resources */,
 				9B4B505021E165A9000913E7 /* LaunchScreen.storyboard in Resources */,
 				9B4B504D21E165A9000913E7 /* Assets.xcassets in Resources */,
 				9B4B507921E16A4A000913E7 /* GoogleService-Info.plist in Resources */,
+				9B31A5FD21F062B6001DAE3A /* Perfil.storyboard in Resources */,
 				9B4B504B21E165A8000913E7 /* Main.storyboard in Resources */,
+				9B31A5FF21F062CB001DAE3A /* Calendar.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,8 +470,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B31A5F721F06288001DAE3A /* CalendarViewController.swift in Sources */,
 				9B4B507B21E82A39000913E7 /* RegisterViewController.swift in Sources */,
 				9B4B504821E165A8000913E7 /* ViewController.swift in Sources */,
+				9B31A5F921F06295001DAE3A /* PerfilViewController.swift in Sources */,
+				9B31A5F521F06274001DAE3A /* PatientsViewController.swift in Sources */,
 				9B4B504621E165A8000913E7 /* AppDelegate.swift in Sources */,
 				9B4B507F21E82B2A000913E7 /* LoginViewController.swift in Sources */,
 				3A28D78021EFB78B0082AF77 /* AlertController.swift in Sources */,
