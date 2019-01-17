@@ -117,7 +117,8 @@ class LoginViewController: UIViewController {
             print("Succesfully authenticated with Firebase")
             self.hud.dismiss(animated: true)
             self.dismiss(animated: true, completion: nil)
-            
+            self.performSegue(withIdentifier: "SignInSegue", sender: nil)
+
         }
     }
     
