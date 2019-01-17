@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7bU-UU-aso"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calendar" id="3Ug-Ff-GWV"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" id="3Ug-Ff-GWV"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sxf-xq-TZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -28,4 +28,7 @@
             <point key="canvasLocation" x="198" y="54"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar" width="37.5" height="37.5"/>
+    </resources>
 </document>

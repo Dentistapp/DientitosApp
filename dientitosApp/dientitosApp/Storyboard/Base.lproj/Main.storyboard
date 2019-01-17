@@ -128,7 +128,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="91L-NA-lkG"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="bek-Kb-rDb"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" id="bek-Kb-rDb"/>
                     <connections>
                         <outlet property="testLabel" destination="hH2-ud-DM3" id="G1o-z6-vf5"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="loginViewSegue" id="h5f-6Y-9Id"/>
@@ -301,6 +301,7 @@
     </scenes>
     <resources>
         <image name="diente" width="1600" height="1600"/>
+        <image name="home" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="h5f-6Y-9Id"/>

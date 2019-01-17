@@ -20,7 +20,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="FhG-cF-gai"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Perfil" id="sW6-nD-2aO"/>
+                    <tabBarItem key="tabBarItem" title="Perfil" image="user" id="sW6-nD-2aO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neY-aC-H66" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -28,4 +28,7 @@
             <point key="canvasLocation" x="39" y="23"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="user" width="37.5" height="37.5"/>
+    </resources>
 </document>
