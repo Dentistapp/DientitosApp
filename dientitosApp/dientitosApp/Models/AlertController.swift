@@ -16,4 +16,19 @@ class AlertController {
         alert.addAction(action)
         inViewController.present(alert, animated: true, completion: nil)
     }
+    
+    static func showAlert(on: UIViewController, preferredStyle: UIAlertController.Style, title: String?, message: String?, actions: [UIAlertAction] = [UIAlertAction(title: "Ok", style: .default, handler: nil)], completion: (() -> Swift.Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message , preferredStyle: .actionSheet)
+        
+        
+        for action in actions {
+            alert.addAction(action)
+        }
+        on.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    
 }

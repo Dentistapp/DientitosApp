@@ -53,7 +53,8 @@ class LoginViewController: UIViewController {
                 print("You miss name")
                 return
         }
-        
+        hud.textLabel.text = "Sign In..."
+        hud.show(in: view, animated: true)
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             guard error == nil else {
                 AlertController.showAlert(inViewController: self, title: "Error", message: error!.localizedDescription)

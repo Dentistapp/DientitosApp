@@ -34,14 +34,5 @@ class HomeViewController: UIViewController {
 
     
     //Boton para terminar la sesion actual
-    @IBAction func signOutTapped(_ sender: UIButton) {
-        do {
-            try Auth.auth().signOut()
-            
-            //MARK Encontrar la forma de volver a la pantalla de login sin usar segue. para que no se aniden las vistas.
-            performSegue(withIdentifier: "loginViewSegue", sender: nil)
-        } catch {
-            print(error)
-        }
-    }
+   
 }
