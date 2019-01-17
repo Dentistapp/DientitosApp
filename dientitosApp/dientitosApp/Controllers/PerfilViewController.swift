@@ -28,16 +28,19 @@ class PerfilViewController: UIViewController {
     @objc func handleSignOutButtonTapped(_ sender: Any){
         
         
-        if Auth.auth().currentUser != nil {
+        let signOutAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
             do {
                 try Auth.auth().signOut()
-                print("Salimooos")
-                self.present(viewC, animated: true, completion: nil)
                 
-            }
-            catch {
+                self.present(self.viewC, animated: true, completion: nil)
+            } catch let error {
+                print("Failed to sign out with error", error)
+                AlertController.showAlert(on: self, preferredStyle: .alert, title: "Sign out error", message: error.localizedDescription)
             }
         }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        AlertController.showAlert(on: self, preferredStyle: .actionSheet, title: nil, message: nil, actions: [signOutAction,cancelAction], completion: nil)
+
         
         
     }
