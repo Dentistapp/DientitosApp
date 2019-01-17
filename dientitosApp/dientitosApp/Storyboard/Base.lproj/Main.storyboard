@@ -101,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="1073" y="-76"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="ojZ-nZ-F27">
             <objects>
                 <viewController id="0VR-cX-o5h" customClass="HomeViewController" customModule="dientitosApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -128,7 +128,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="91L-NA-lkG"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="bek-Kb-rDb"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="bek-Kb-rDb"/>
                     <connections>
                         <outlet property="testLabel" destination="hH2-ud-DM3" id="G1o-z6-vf5"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="loginViewSegue" id="h5f-6Y-9Id"/>
@@ -259,17 +259,50 @@
                     </tabBar>
                     <connections>
                         <segue destination="0VR-cX-o5h" kind="relationship" relationship="viewControllers" id="DSk-c5-R6b"/>
+                        <segue destination="cOK-sI-UVc" kind="relationship" relationship="viewControllers" id="NN3-rr-C4Z"/>
+                        <segue destination="IYW-bN-puk" kind="relationship" relationship="viewControllers" id="jeg-ge-cq1"/>
+                        <segue destination="epX-4i-cep" kind="relationship" relationship="viewControllers" id="kpM-x0-Pgs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCj-kp-tjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1898" y="-76"/>
         </scene>
+        <!--Patients-->
+        <scene sceneID="Bdz-5I-855">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Patients" id="cOK-sI-UVc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="AwQ-82-M5m"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvg-3c-1k2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1621" y="372"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="DTH-Dp-Vpn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" id="IYW-bN-puk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ZEL-ms-7Uj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LhR-OZ-frg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1897" y="432"/>
+        </scene>
+        <!--Perfil-->
+        <scene sceneID="TkG-3v-n3C">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Perfil" id="epX-4i-cep" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="rNX-TV-KLA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uOp-xT-zWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2145" y="372"/>
+        </scene>
     </scenes>
     <resources>
         <image name="diente" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aUQ-o4-jLq"/>
+        <segue reference="h5f-6Y-9Id"/>
     </inferredMetricsTieBreakers>
 </document>
