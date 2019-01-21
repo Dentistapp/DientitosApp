@@ -264,7 +264,7 @@
         <scene sceneID="Bdz-5I-855">
             <objects>
                 <viewControllerPlaceholder storyboardName="Patients" id="cOK-sI-UVc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="AwQ-82-M5m"/>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="patients" id="AwQ-82-M5m"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvg-3c-1k2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -294,6 +294,7 @@
     <resources>
         <image name="diente" width="1600" height="1600"/>
         <image name="home" width="37.5" height="37.5"/>
+        <image name="patients" width="37.5" height="37.5"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="h5f-6Y-9Id"/>
