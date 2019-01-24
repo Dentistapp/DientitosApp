@@ -2,32 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    
-    
-    <key>CFBundleURLTypes</key>
-    <array>
-    <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-            <string>fb214487576043786</string>
-        </array>
-    </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>214487576043786</string>
-    <key>FacebookDisplayName</key>
-    <string>DientitosApp</string>
-    
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
-    
-    
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Dientitos App quiere acceder a su Galeria</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Dientitos App Quiere Usar tu camara</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb214487576043786</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>214487576043786</string>
+	<key>FacebookDisplayName</key>
+	<string>DientitosApp</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
