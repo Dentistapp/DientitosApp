@@ -54,7 +54,7 @@ class AddPatientViewController: UIViewController {
                 let storage = Storage.storage()
                 let storageRef = storage.reference().child("myPatients/\(imageName)")
                 let  urlReference = storageRef
-                if let uploadData = self.patientimageView.image!.pngData() {
+                if let uploadData = self.patientimageView.image!.jpegData(compressionQuality: 0.2) {
                     storageRef.putData(uploadData, metadata: nil) { (metada, error) in
                         
                         if error != nil {
@@ -110,12 +110,6 @@ private func registerpatientIntoDBWithID(id: String, values: [String: Any]) {
 }
     
     
-    
-    
-    
-    
-    
-
     
     func fetchUser() {
         let db = Firestore.firestore()
