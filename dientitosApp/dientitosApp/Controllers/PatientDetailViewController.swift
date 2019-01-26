@@ -17,6 +17,7 @@ class PatientDetailViewController: UIViewController {
     
     var image = UIImage()
     var name = ""
+    var patient: Patient?
     //var name : String
 
     override func viewDidLoad() {

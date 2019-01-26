@@ -114,6 +114,12 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
         return 72
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let patieneDetailVC = segue.destination as? PatientDetailViewController
+        let patient = sender as? Patient
+        patieneDetailVC?.patient = patient
+    }
+    
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -121,6 +127,7 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
         let patient = self.patients[indexPath.row]
         
         print(patient.name)
+        print(patient.email)
         
         patientDetailVC.name = patient.name! as! String
 //        if let patientName = patient.name {
@@ -128,7 +135,7 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
 //        }
         
         
-     performSegue(withIdentifier: "patientDetailsegue", sender: nil)
+     performSegue(withIdentifier: "patientDetailsegue", sender: patient)
     }
     
 }
