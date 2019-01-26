@@ -15,21 +15,31 @@ class PatientDetailViewController: UIViewController {
     @IBOutlet weak var treatmentlabel: UILabel!
     @IBOutlet weak var appoinmentLabel: UILabel!
     
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var patientPhoneLabel: UILabel!
+    @IBOutlet weak var patientEmailLabel: UILabel!
     var image = UIImage()
     var name = ""
     var patient: Patient?
+    
     //var name : String
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        patientDetail()
 
-       imagePatient.image = image
         //appoinmentLabel.text = "Que esta pasando aqui \(appointment)"
-        patientNameLabel.text? = "\(name)"
         
     }
     
+   
+    func patientDetail(){
+        patientNameLabel.text = patient?.name
+        ageLabel.text = patient?.age
+        patientPhoneLabel.text = patient?.phone
+        patientEmailLabel.text = patient?.email
 
+    }
     /*
     // MARK: - Navigation
 
