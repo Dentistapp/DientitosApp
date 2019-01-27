@@ -14,7 +14,8 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var patients = [Patient]()
     let cellId = "cellId"
-    
+    var myIndex = 0
+    let patientDetailVC = PatientDetailViewController()
     
     @IBOutlet weak var patientTableView: UITableView!
     
@@ -55,11 +56,23 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
                     let nameFound = document.get("name") as! String
                     let emailFound = document.get("email") as! String
                     let imageUrl = document.get("profilePatientURL") as! String
+                    let treatment = document.get("treatment") as! String
+                    let age = document.get("age") as! String
+                    let phone = document.get("phone") as! String
+                    let appoinment = document.get("appoinment") as! String
+                 //   let uid = document.get("uid") as! String
                     
                     let patient = Patient()
                     patient.name = nameFound
                     patient.email = emailFound
                     patient.profileImagenUrl = imageUrl
+                    patient.treatment = treatment
+                    patient.age = age
+                    patient.phone = phone
+                    patient.appointment = appoinment
+                   // patient.uid = uid
+                    
+                    
                     // print("User Found")
                     //  print("\(document.documentID) => \(document.data())")
                     print(patient.name!, patient.email ?? "not found")
@@ -83,35 +96,46 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! PatientCell
         //we need to dequeue the cells for memory efficiency
         let patient = patients[indexPath.row]
         cell.textLabel?.text = patient.name
         cell.detailTextLabel?.text = patient.email
 
-        
         if let profilePatientImageUrl = patient.profileImagenUrl {
-            let url =  URL(string: profilePatientImageUrl)
-            URLSession.shared.dataTask(with: url!) { (data, responde, error) in
-                
-                
-                if error != nil {
-                    print(error!)
-                }
-                DispatchQueue.main.async {
-                    cell.profileImageView.image = UIImage(data: data!)
-//                    cell.imageView?.image =
-                }
-            }.resume()
-                
+            
+            cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profilePatientImageUrl)
        
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 56
+        return 72
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let patieneDetailVC = segue.destination as? PatientDetailViewController
+        let patient = sender as? Patient
+        patieneDetailVC?.patient = patient
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let patient = self.patients[indexPath.row]
+        
+//        print(patient.name)
+//        print(patient.email)
+//
+//        patientDetailVC.name = patient.name! as! String
+//        if let patientName = patient.name {
+//            vc.patientNameLabel.text! = patientName
+//        }
+        
+        
+     performSegue(withIdentifier: "patientDetailsegue", sender: patient)
     }
     
 }
@@ -122,9 +146,9 @@ class PatientCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        textLabel?.frame = CGRect(x: 56, y: textLabel!.frame.origin.y - 2, width: textLabel!.frame.width, height: textLabel!.frame.height)
+        textLabel?.frame = CGRect(x: 64, y: textLabel!.frame.origin.y - 2, width: textLabel!.frame.width, height: textLabel!.frame.height)
         
-         detailTextLabel?.frame = CGRect(x: 56, y: detailTextLabel!.frame.origin.y + 2, width: detailTextLabel!.frame.width, height: detailTextLabel!.frame.height)
+         detailTextLabel?.frame = CGRect(x: 64, y: detailTextLabel!.frame.origin.y + 2, width: detailTextLabel!.frame.width, height: detailTextLabel!.frame.height)
         
     }
     
@@ -132,8 +156,9 @@ class PatientCell: UITableViewCell {
         let imageView = UIImageView()
         //imageView.image = UIImage(named: "addingNewPacient")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 20
+        imageView.layer.cornerRadius = 24
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return  imageView
     }()
     
@@ -144,8 +169,8 @@ class PatientCell: UITableViewCell {
         //x,y, width, height anchors
         profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
         profileImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 48).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 48).isActive = true
         
     }
     

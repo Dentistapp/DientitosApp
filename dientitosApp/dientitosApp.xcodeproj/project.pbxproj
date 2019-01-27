@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0263F34B344B063E9BE439EB /* Pods_dientitosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B381DE401F80AF5A0BC461 /* Pods_dientitosApp.framework */; };
 		3A232EC221F6A9D30080CF40 /* AddPatientController+handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A232EC121F6A9D30080CF40 /* AddPatientController+handler.swift */; };
+		3A232EC521F99C620080CF40 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A232EC421F99C620080CF40 /* Extension.swift */; };
+		3A232EC721FA3BF70080CF40 /* PatientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A232EC621FA3BF70080CF40 /* PatientDetailViewController.swift */; };
 		3A28D78021EFB78B0082AF77 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28D77F21EFB78B0082AF77 /* AlertController.swift */; };
 		3A28D78E21F679690082AF77 /* AddPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28D78D21F679690082AF77 /* AddPatientViewController.swift */; };
 		3A28D79021F67A430082AF77 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28D78F21F67A430082AF77 /* Patient.swift */; };
@@ -54,6 +56,8 @@
 		0014D6619DC308B8B5A5BC35 /* Pods_dientitosAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dientitosAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F400E30B3338B65DC2BFB1F /* Pods-dientitosAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dientitosAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dientitosAppUITests/Pods-dientitosAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3A232EC121F6A9D30080CF40 /* AddPatientController+handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddPatientController+handler.swift"; sourceTree = "<group>"; };
+		3A232EC421F99C620080CF40 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		3A232EC621FA3BF70080CF40 /* PatientDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDetailViewController.swift; sourceTree = "<group>"; };
 		3A28D77F21EFB78B0082AF77 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		3A28D78D21F679690082AF77 /* AddPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatientViewController.swift; sourceTree = "<group>"; };
 		3A28D78F21F67A430082AF77 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
@@ -117,6 +121,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A232EC321F99C330080CF40 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3A232EC421F99C620080CF40 /* Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		41E938F4A4B76C1410EBAD54 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +177,7 @@
 		9B4B504421E165A8000913E7 /* dientitosApp */ = {
 			isa = PBXGroup;
 			children = (
+				3A232EC321F99C330080CF40 /* Helpers */,
 				9B4B507721E16725000913E7 /* Storyboard */,
 				9B4B507621E16717000913E7 /* Controllers */,
 				9B4B507521E16710000913E7 /* Models */,
@@ -216,6 +229,7 @@
 				9B31A5F821F06295001DAE3A /* PerfilViewController.swift */,
 				3A28D78D21F679690082AF77 /* AddPatientViewController.swift */,
 				3A232EC121F6A9D30080CF40 /* AddPatientController+handler.swift */,
+				3A232EC621FA3BF70080CF40 /* PatientDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -494,6 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A28D78E21F679690082AF77 /* AddPatientViewController.swift in Sources */,
+				3A232EC721FA3BF70080CF40 /* PatientDetailViewController.swift in Sources */,
 				9B31A5F721F06288001DAE3A /* CalendarViewController.swift in Sources */,
 				9B4B507B21E82A39000913E7 /* RegisterViewController.swift in Sources */,
 				9B4B504821E165A8000913E7 /* ViewController.swift in Sources */,
@@ -502,6 +517,7 @@
 				9B31A5F521F06274001DAE3A /* PatientsViewController.swift in Sources */,
 				9B4B504621E165A8000913E7 /* AppDelegate.swift in Sources */,
 				9B4B507F21E82B2A000913E7 /* LoginViewController.swift in Sources */,
+				3A232EC521F99C620080CF40 /* Extension.swift in Sources */,
 				3A28D78021EFB78B0082AF77 /* AlertController.swift in Sources */,
 				9B4B507D21E82B1A000913E7 /* HomeViewController.swift in Sources */,
 				3A28D79021F67A430082AF77 /* Patient.swift in Sources */,
