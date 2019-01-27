@@ -126,10 +126,10 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
 
         let patient = self.patients[indexPath.row]
         
-        print(patient.name)
-        print(patient.email)
-        
-        patientDetailVC.name = patient.name! as! String
+//        print(patient.name)
+//        print(patient.email)
+//
+//        patientDetailVC.name = patient.name! as! String
 //        if let patientName = patient.name {
 //            vc.patientNameLabel.text! = patientName
 //        }
