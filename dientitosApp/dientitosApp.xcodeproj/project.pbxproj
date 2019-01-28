@@ -32,6 +32,8 @@
 		9B4B507B21E82A39000913E7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B507A21E82A39000913E7 /* RegisterViewController.swift */; };
 		9B4B507D21E82B1A000913E7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B507C21E82B1A000913E7 /* HomeViewController.swift */; };
 		9B4B507F21E82B2A000913E7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4B507E21E82B2A000913E7 /* LoginViewController.swift */; };
+		9BF84C8021FE6BC00059FCF5 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF84C7F21FE6BC00059FCF5 /* DateCollectionViewCell.swift */; };
+		9BF84C8221FE6D2F0059FCF5 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF84C8121FE6D2F0059FCF5 /* Calendar.swift */; };
 		BDB890E34E39935EEC9510E1 /* Pods_dientitosAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0014D6619DC308B8B5A5BC35 /* Pods_dientitosAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,8 @@
 		9B4B507A21E82A39000913E7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9B4B507C21E82B1A000913E7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9B4B507E21E82B2A000913E7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9BF84C7F21FE6BC00059FCF5 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		9BF84C8121FE6D2F0059FCF5 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		A2B381DE401F80AF5A0BC461 /* Pods_dientitosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dientitosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB18B467A107A7906FA10376 /* Pods-dientitosAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dientitosAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dientitosAppTests/Pods-dientitosAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B77B31503AB7887E2C36037D /* Pods_dientitosAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dientitosAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				3A28D77F21EFB78B0082AF77 /* AlertController.swift */,
+				9BF84C8121FE6D2F0059FCF5 /* Calendar.swift */,
 				3A28D78F21F67A430082AF77 /* Patient.swift */,
 			);
 			path = Models;
@@ -226,6 +231,7 @@
 				9B4B507E21E82B2A000913E7 /* LoginViewController.swift */,
 				9B4B507C21E82B1A000913E7 /* HomeViewController.swift */,
 				9B31A5F621F06288001DAE3A /* CalendarViewController.swift */,
+				9BF84C7F21FE6BC00059FCF5 /* DateCollectionViewCell.swift */,
 				9B31A5F821F06295001DAE3A /* PerfilViewController.swift */,
 				3A28D78D21F679690082AF77 /* AddPatientViewController.swift */,
 				3A232EC121F6A9D30080CF40 /* AddPatientController+handler.swift */,
@@ -510,7 +516,9 @@
 				3A28D78E21F679690082AF77 /* AddPatientViewController.swift in Sources */,
 				3A232EC721FA3BF70080CF40 /* PatientDetailViewController.swift in Sources */,
 				9B31A5F721F06288001DAE3A /* CalendarViewController.swift in Sources */,
+				9BF84C8221FE6D2F0059FCF5 /* Calendar.swift in Sources */,
 				9B4B507B21E82A39000913E7 /* RegisterViewController.swift in Sources */,
+				9BF84C8021FE6BC00059FCF5 /* DateCollectionViewCell.swift in Sources */,
 				9B4B504821E165A8000913E7 /* ViewController.swift in Sources */,
 				3A232EC221F6A9D30080CF40 /* AddPatientController+handler.swift in Sources */,
 				9B31A5F921F06295001DAE3A /* PerfilViewController.swift in Sources */,
