@@ -28,15 +28,20 @@ class AddPatientViewController: UIViewController {
         super.viewDidLoad()
         
         profileImagenView()
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Patient", style: .plain, target: self, action: #selector(addPatient))
 
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButton))
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addPatientButtonPressed(_ sender: UIButton) {
+    @objc func cancelButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func addPatient() {
         
         checkPermission()
-        
+
         guard let email = emailPatientTF.text,
             let age = agePatientTF.text,
             let name = namePatientTF.text,
@@ -49,44 +54,50 @@ class AddPatientViewController: UIViewController {
         let patientID = name + age
         print(patientID)
         
-                //Storage
-                let imageName = NSUUID().uuidString
-                let storage = Storage.storage()
-                let storageRef = storage.reference().child("myPatients/\(imageName)")
-                let  urlReference = storageRef
-                if let uploadData = self.patientimageView.image!.jpegData(compressionQuality: 0.2) {
-                    storageRef.putData(uploadData, metadata: nil) { (metada, error) in
-                        
-                        if error != nil {
-                            print(error ?? "error")
-                            return
-                        }
-                        print(metada ?? "NO error")
-                        urlReference.downloadURL { url, error in
-                            if let error = error {
-                                print(error)
-                                
-                                
-                            } else {
-                                
-                                if let profileImageURL = url?.absoluteString {
-                                    let values = ["name": name, "email": email, "phone": phone, "appoinment": appointment, "treatment": treatment, "age": age, "profilePatientURL": profileImageURL]
-                                    
-                                    self.registerpatientIntoDBWithID(id: patientID, values: values)
-                                }
-                                
-                                print(url ?? "Tenemos la URL")
-                                //Aqui tenemos el url
-                            } 
-                        
-                        
-                        
-                    }
+        //Storage
+        let imageName = NSUUID().uuidString
+        let storage = Storage.storage()
+        let storageRef = storage.reference().child("myPatients/\(imageName)")
+        let  urlReference = storageRef
+        if let uploadData = self.patientimageView.image!.jpegData(compressionQuality: 0.2) {
+            storageRef.putData(uploadData, metadata: nil) { (metada, error) in
+                
+                if error != nil {
+                    print(error ?? "error")
+                    return
                 }
-                // Fetch the download URL
-
+                print(metada ?? "NO error")
+                urlReference.downloadURL { url, error in
+                    if let error = error {
+                        print(error)
+                        
+                        
+                    } else {
+                        
+                        if let profileImageURL = url?.absoluteString {
+                            let values = ["name": name, "email": email, "phone": phone, "appoinment": appointment, "treatment": treatment, "age": age, "profilePatientURL": profileImageURL]
+                            
+                            self.registerpatientIntoDBWithID(id: patientID, values: values)
+                        }
+                        
+                        print(url ?? "Tenemos la URL")
+                        //Aqui tenemos el url
+                    }
+                    
+                    
+                    
+                }
+            }
+            // Fetch the download URL
+            
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func addPatientButtonPressed(_ sender: UIButton) {
+        
+        checkPermission()
+       
     }
     
 private func registerpatientIntoDBWithID(id: String, values: [String: Any]) {
