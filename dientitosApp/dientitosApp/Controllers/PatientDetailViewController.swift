@@ -40,9 +40,22 @@ class PatientDetailViewController: UIViewController {
         patientEmailLabel.text = patient?.email
 
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as? popUpViewController
+        let patient = sender as? Patient
+        destVC?.patient = sender  as? Patient
+        
+    }
+    
+    func saveInfo() {
+        let patientToSend = patient
+        performSegue(withIdentifier: "appoinmentSegue", sender: patientToSend)
+    }
 
     @IBAction func popUpVCButtonPressed(_ sender: UIButton) {
-
+        saveInfo()
     }
+
     
 }
