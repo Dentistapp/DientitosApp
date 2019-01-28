@@ -22,7 +22,6 @@ class AddPatientViewController: UIViewController {
     @IBOutlet weak var emailPatientTF: UITextField!
     
     @IBOutlet weak var patientimageView: UIImageView!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +32,17 @@ class AddPatientViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButton))
         // Do any additional setup after loading the view.
     }
+    
+    func fetchUserLoggedIn() -> String {
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let uid = user.uid
+            return uid;
+        }
+        let error = "no encontre uid"
+        return error
+    }
+    
     
     @objc func cancelButton() {
         self.dismiss(animated: true, completion: nil)
@@ -51,6 +61,7 @@ class AddPatientViewController: UIViewController {
                 print("Form is not valid")
                 return
         }
+        let doctorUid = fetchUserLoggedIn()
         let patientID = name + age
         print(patientID)
         
@@ -75,7 +86,7 @@ class AddPatientViewController: UIViewController {
                     } else {
                         
                         if let profileImageURL = url?.absoluteString {
-                            let values = ["name": name, "email": email, "phone": phone, "appoinment": appointment, "treatment": treatment, "age": age, "profilePatientURL": profileImageURL]
+                            let values = ["name": name, "email": email, "phone": phone, "appoinment": appointment, "treatment": treatment, "age": age, "profilePatientURL": profileImageURL, "idDoctor": doctorUid]
                             
                             self.registerpatientIntoDBWithID(id: patientID, values: values)
                         }
@@ -94,11 +105,7 @@ class AddPatientViewController: UIViewController {
         }
     }
     
-    @IBAction func addPatientButtonPressed(_ sender: UIButton) {
-        
-        checkPermission()
-       
-    }
+    
     
 private func registerpatientIntoDBWithID(id: String, values: [String: Any]) {
     //Referencia  la DB

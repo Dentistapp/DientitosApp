@@ -380,14 +380,6 @@
                                     <constraint firstAttribute="height" constant="87" id="S6Z-AO-oUM"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oKc-4d-Xey">
-                                <rect key="frame" x="152" y="578" width="94" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Add Patient"/>
-                                <connections>
-                                    <action selector="addPatientButtonPressed:" destination="KjU-Vh-G8F" eventType="touchUpInside" id="F3i-4I-dJF"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -400,15 +392,12 @@
                             <constraint firstItem="K6I-Xt-uRA" firstAttribute="trailing" secondItem="vbf-Kj-qzA" secondAttribute="trailing" constant="16" id="Eq2-dP-OB2"/>
                             <constraint firstItem="vbf-Kj-qzA" firstAttribute="leading" secondItem="K6I-Xt-uRA" secondAttribute="leading" constant="16" id="H5N-jO-GF4"/>
                             <constraint firstItem="K6I-Xt-uRA" firstAttribute="trailing" secondItem="oWC-Cc-iUG" secondAttribute="trailing" constant="16" id="JFo-aC-8ZZ"/>
-                            <constraint firstItem="oKc-4d-Xey" firstAttribute="leading" secondItem="K6I-Xt-uRA" secondAttribute="leading" constant="152" id="KPW-ft-8ky"/>
                             <constraint firstItem="tGm-ud-8d7" firstAttribute="leading" secondItem="K6I-Xt-uRA" secondAttribute="leading" constant="144" id="PM5-VB-9cd"/>
-                            <constraint firstItem="K6I-Xt-uRA" firstAttribute="trailing" secondItem="oKc-4d-Xey" secondAttribute="trailing" constant="129" id="VVc-Ha-MJz"/>
                             <constraint firstItem="avQ-q2-PGo" firstAttribute="top" secondItem="flF-N8-fnI" secondAttribute="bottom" constant="8" id="Vqn-4w-8YY"/>
                             <constraint firstItem="gMW-yq-6vR" firstAttribute="leading" secondItem="K6I-Xt-uRA" secondAttribute="leading" constant="16" id="WRS-wB-hUf"/>
                             <constraint firstItem="K6I-Xt-uRA" firstAttribute="trailing" secondItem="tGm-ud-8d7" secondAttribute="trailing" constant="144" id="XG0-K2-Ayw"/>
                             <constraint firstItem="oWC-Cc-iUG" firstAttribute="leading" secondItem="K6I-Xt-uRA" secondAttribute="leading" constant="16" id="d0H-mN-mJh"/>
                             <constraint firstItem="q3x-v1-L71" firstAttribute="top" secondItem="K6I-Xt-uRA" secondAttribute="top" constant="29" id="fSo-mr-1PO"/>
-                            <constraint firstItem="K6I-Xt-uRA" firstAttribute="bottom" secondItem="oKc-4d-Xey" secondAttribute="bottom" constant="55" id="j4M-cR-tGt"/>
                             <constraint firstItem="avQ-q2-PGo" firstAttribute="leading" secondItem="K6I-Xt-uRA" secondAttribute="leading" constant="16" id="jiW-9v-3dZ"/>
                             <constraint firstItem="K6I-Xt-uRA" firstAttribute="trailing" secondItem="gMW-yq-6vR" secondAttribute="trailing" constant="16" id="kZp-Z7-rdI"/>
                             <constraint firstItem="tGm-ud-8d7" firstAttribute="top" secondItem="q3x-v1-L71" secondAttribute="bottom" constant="31" id="mlc-3p-jGN"/>
