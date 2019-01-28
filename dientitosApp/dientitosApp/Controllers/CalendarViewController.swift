@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class CalendarViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
     
     
@@ -24,11 +23,12 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
     var nextNumberOfEmptyBox = Int()
     var previousNumberOfEmptyBox = 0
     var direction = 0
-    
     var positionIndex = 0
     var leapYearCounter = 3
     var dayCounter = 0
+    var highlightDate = -1
     
+    var dateString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +39,15 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
         }
         getStartDateDayPosition()
         
-        // Do any additional setup after loading the view.
     }
     
     
+  
+    //MARK: Configuration buttons next month and back month
     
     @IBAction func nextMonth(_ sender: Any) {
+        highlightDate = -1
+
         switch currentMonth {
         case "December":
             direction = 1
@@ -81,6 +84,7 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
     }
     
     @IBAction func backMonth(_ sender: Any) {
+        highlightDate = -1
         switch currentMonth {
         case "January":
             direction = -1
@@ -115,7 +119,8 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
         }
     }
     
-    //Function gives us the number of empty boxes
+    // MARK: - Configuration EmptyBox of month
+    //Function to know how many empty boxes the month will have
     
     func getStartDateDayPosition(){
         switch direction {
@@ -204,12 +209,26 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
         if currentMonth == Months[calendar.component(.month, from: date) - 1] && year == calendar.component(.year, from: date) && indexPath.row + 1 - numberOfEmptyBox == day{
             cell.circle.isHidden = false
             cell.DrawCircle()
-            
-            
         }
         
+        if highlightDate == indexPath.row {
+            cell.backgroundColor = UIColor.red
+        }
         return cell
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //Aqui va el segue para que al dar clic se vaya al view de las citas
+        dateString = "\(indexPath.row - positionIndex + 1) \(currentMonth) \(year)"
+        highlightDate = indexPath.row
+        collectionView.reloadData()
+        
+        
+    }
+    
+    
+    
     
     
 }
