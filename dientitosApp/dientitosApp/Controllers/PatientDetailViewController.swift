@@ -13,7 +13,7 @@ class PatientDetailViewController: UIViewController {
     @IBOutlet weak var imagePatient: UIImageView!
     @IBOutlet weak var patientNameLabel: UILabel!
     @IBOutlet weak var treatmentlabel: UILabel!
-    @IBOutlet weak var appoinmentLabel: UILabel!
+
     
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var patientPhoneLabel: UILabel!
@@ -40,14 +40,9 @@ class PatientDetailViewController: UIViewController {
         patientEmailLabel.text = patient?.email
 
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func popUpVCButtonPressed(_ sender: UIButton) {
+
     }
-    */
-
+    
 }
