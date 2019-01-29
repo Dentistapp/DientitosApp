@@ -59,7 +59,7 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
                     let treatment = document.get("treatment") as! String
                     let age = document.get("age") as! String
                     let phone = document.get("phone") as! String
-                    let appoinment = document.get("appoinment") as! String
+                    let appoinment = document.get("appoinment") as? String
                  //   let uid = document.get("uid") as! String
                     
                     let patient = Patient()

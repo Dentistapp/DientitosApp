@@ -16,4 +16,5 @@ class Patient: NSObject {
     var age: String?
     var uid: String?
     var profileImagenUrl: String?
+    var lastName: String?
 }
