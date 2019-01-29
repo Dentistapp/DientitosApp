@@ -109,15 +109,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello Someone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-ud-DM3">
-                                <rect key="frame" x="68" y="106" width="199" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Someone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-ud-DM3">
+                                <rect key="frame" x="88" y="55" width="199" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="91L-NA-lkG" firstAttribute="trailing" secondItem="hH2-ud-DM3" secondAttribute="trailing" constant="88" id="AKJ-R0-s1f"/>
+                            <constraint firstItem="hH2-ud-DM3" firstAttribute="leading" secondItem="91L-NA-lkG" secondAttribute="leading" constant="88" id="e9P-ye-FMW"/>
+                            <constraint firstItem="hH2-ud-DM3" firstAttribute="top" secondItem="91L-NA-lkG" secondAttribute="top" constant="35" id="s4x-cu-kT5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="91L-NA-lkG"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="home" id="bek-Kb-rDb"/>

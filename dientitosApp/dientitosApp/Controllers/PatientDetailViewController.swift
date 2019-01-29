@@ -45,6 +45,7 @@ class PatientDetailViewController: UIViewController {
         let destVC = segue.destination as? popUpViewController
         let patient = sender as? Patient
         destVC?.patient = sender  as? Patient
+        print(patient!)
         
     }
     
