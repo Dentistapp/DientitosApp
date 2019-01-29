@@ -56,7 +56,7 @@ class AddPatientViewController: UIViewController {
             let age = agePatientTF.text,
             let name = namePatientTF.text,
             let phone = phonePatientTF.text,
-            let appointment = appointmentPatientTF.text,
+            let appoinment = appointmentPatientTF.text,
             let treatment = treatmentPatientTF.text else {
                 print("Form is not valid")
                 return
@@ -81,12 +81,10 @@ class AddPatientViewController: UIViewController {
                 urlReference.downloadURL { url, error in
                     if let error = error {
                         print(error)
-                        
-                        
                     } else {
                         
                         if let profileImageURL = url?.absoluteString {
-                            let values = ["name": name, "email": email, "phone": phone, "appoinment": appointment, "treatment": treatment, "age": age, "profilePatientURL": profileImageURL, "idDoctor": doctorUid]
+                            let values = ["name": name, "email": email, "phone": phone, "lastName": appoinment, "treatment": treatment, "age": age, "profilePatientURL": profileImageURL, "idDoctor": doctorUid, "idPatient": patientID]
                             
                             self.registerpatientIntoDBWithID(id: patientID, values: values)
                         }
@@ -148,6 +146,7 @@ private func registerpatientIntoDBWithID(id: String, values: [String: Any]) {
                     let email = document.get("email") as! String
                    // let url = document.get("profilePatientURL")
                     
+                    
                     print("User Found")
                     print("\(document.documentID) => \(document.data())")
                     
@@ -182,6 +181,5 @@ private func registerpatientIntoDBWithID(id: String, values: [String: Any]) {
             print("No se que esta pasando")
         }
     }
-    
     
 }

@@ -13,37 +13,84 @@ class popUpViewController: UIViewController {
     
     var patient: Patient?
     
+    private var datePicker: UIDatePicker?
+    private var hourPicker: UIDatePicker?
+    
     //instanciar el VC anterior a este let 
     
     //pasarle el paciente actual para que tenga el uid
     //agregar campos de dia y hora y  obtener el uid del doctor loggeado
-    @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var inputTextiel: UITextField!
+    
+    @IBOutlet weak var inputoHourTF: UITextField!
     
 
-    @IBOutlet weak var appoinmetnPickerDate: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tryLabel()
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(popUpViewController.dateChange(datePicker:)), for: .valueChanged)
+        
+        hourPicker = UIDatePicker()
+        hourPicker?.datePickerMode = .time
+        hourPicker?.addTarget(self, action: #selector(popUpViewController.hourChanged(datePicker: )), for: .valueChanged)
+        
+        inputTextiel.inputView = datePicker
+        inputoHourTF.inputView = hourPicker
+        
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(popUpViewController.viewTapped(gestureRecognizer:)))
+        
+        view.addGestureRecognizer(tapGesture)
+        
         let name = patient?.name!
-        navigationItem.title = "\(name)"
+        navigationItem.title = "Appoinment to \(name!)"
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelVC))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addAppoinment))
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @objc func hourChanged(datePicker: UIDatePicker) -> String {
+        let hourFormatter = DateFormatter()
+        hourFormatter.timeStyle = .short
+        
+        inputoHourTF.text = hourFormatter.string(from: hourPicker!.date)
+        
+        let hourString = hourFormatter.string(from: hourPicker!.date)
+        view.endEditing(true)
+        return hourString
+    }
+    
+    @objc func dateChange(datePicker: UIDatePicker) -> String{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        print(dateFormatter)
+        
+        inputTextiel.text = dateFormatter.string(from:datePicker.date)
+        
+        let dateString = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
+        return dateString
     }
     
     @objc func addAppoinment() {
         
         //Appointmnet es prueba
-        let appoinmentDay = "15 de febrero"
+        let appoinmentDay = dateChange(datePicker: datePicker!)
         let doctorUid = fetchUserLoggedIn()
-        let patienID = "1235"
+        let patienID = patient?.uid
        // let a = 23
-        let appoinmentHour = "22"
+        let appoinmentHour = hourChanged(datePicker: hourPicker!)
         
         let values =  ["appoinmentDay": appoinmentDay, "appoinmentHour": appoinmentHour, "doctorUid": doctorUid]
         
-        self.registerAppoinmnetwithId(idPatient: patienID, doctorUID: doctorUid, values: values)
+        self.registerAppoinmnetwithId(idPatient: patienID!, doctorUID: doctorUid, values: values)
         
     }
     
@@ -88,8 +135,6 @@ class popUpViewController: UIViewController {
         return error
     }
     
-    func tryLabel() {
-        nameLabel.text = patient?.name
-    }
+
       
 }
