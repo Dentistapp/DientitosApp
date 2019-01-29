@@ -16,26 +16,30 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    @IBOutlet weak var registerUserButton: UIButton!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        navigationItem.title = "Register"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerButton))
         // Do any additional setup after loading the view.
     }
+    @objc func cancelButton(){
+        self.dismiss(animated: true, completion: nil)
+    }
     
-
-    //Actions
+    func getOut(action: UIAlertAction) {
+        dismiss(animated: true, completion: nil)
+    }
     
-    
-    @IBAction func registerButtonTapped(_ sender: UIButton) {
-        
+    @objc func registerButton() {
         guard let username = nameTextField.text,
             username != "" else {
                 AlertController.showAlert(inViewController: self, title: "Missing Name", message: "Please fill the name box")
                 print("You miss name")
-            return
+                return
         }
         guard let email = emailTextField.text,
             email != "" else {
@@ -69,15 +73,14 @@ class RegisterViewController: UIViewController {
                     AlertController.showAlert(inViewController: self, title: "Error", message: error!.localizedDescription)
                     return
                 }
-                
-               // self.performSegue(withIdentifier: "signInSegue", sender: nil)
             AlertController.showAlert(inViewController: self, title: "Cuenta creada", message: "Tu cuenta ah sido creada, inicia sesión con los datos que proporcionaste")
-
-            })
-            self.performSegue(withIdentifier: "returnToLoginView", sender: nil)
-
             
-            //Aqui podemos cambiar la foto del usuario
+                
+            })
+            
+            let alert = UIAlertController(title: "Account Created", message: "Your Account has been Created, log in with the data you provided", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: self.getOut))
+            self.present(alert, animated: true, completion: nil)
         }
         
     }
