@@ -30,7 +30,6 @@ class AddPatientViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Patient", style: .plain, target: self, action: #selector(addPatient))
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButton))
-        // Do any additional setup after loading the view.
     }
     
     func fetchUserLoggedIn() -> String {
@@ -111,24 +110,19 @@ class AddPatientViewController: UIViewController {
                             self.registerpatientIntoDBWithID(id: patientID, values: values)
                         }
                         print(url ?? "Tenemos la URL")
-                        //Aqui tenemos el url
                     }
                     
                     
                     
                 }
             }
-            // Fetch the download URL
             
             self.dismiss(animated: true, completion: nil)
         }
     }
     
-    
-    
-private func registerpatientIntoDBWithID(id: String, values: [String: Any]) {
+    private func registerpatientIntoDBWithID(id: String, values: [String: Any]) {
     //Referencia  la DB
-
         let db = Firestore.firestore()
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
@@ -137,43 +131,8 @@ private func registerpatientIntoDBWithID(id: String, values: [String: Any]) {
         db.collection("myPatients").addDocument(data: values) { err in
             if let err = err {
                 print("Error writing document: \(err)")
-                //Meter alerta de error
             } else {
                 print("Document successfully written!")
-            }
-        }
-}
-    
-    
-    
-    func fetchUser() {
-        let db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
-        
-        db.collection("myPatients").getDocuments() { (querySnapshot, err) in
-            
-            let patient = Patient()
-            
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    
-                    let name = document.get("name") as! String
-                    let email = document.get("email") as! String
-                   // let url = document.get("profilePatientURL")
-                    
-                    
-                    print("User Found")
-                    print("\(document.documentID) => \(document.data())")
-                    
-                    print("qweqw")
-                    print(name, email)
-                    print("yes")
-                    self.patients.append(patient)
-                }
             }
         }
     }

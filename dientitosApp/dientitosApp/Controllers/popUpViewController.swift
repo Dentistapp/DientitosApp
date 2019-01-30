@@ -79,7 +79,6 @@ class popUpViewController: UIViewController {
     }
     
     @objc func addAppoinment() {
-        fetchPatientID()
         let appoinmentDay = dateChange(datePicker: datePicker!)
         let doctorUid = fetchUserLoggedIn()
         let patienID = patient?.uid!
