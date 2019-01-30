@@ -83,8 +83,9 @@ class popUpViewController: UIViewController {
         let doctorUid = fetchUserLoggedIn()
         let patienID = patient?.uid!
         let appoinmentHour = hourChanged(datePicker: hourPicker!)
+        let profileImageUrl = patient?.profileImagenUrl!
         
-        let values =  ["appoinmentDay": appoinmentDay, "appoinmentHour": appoinmentHour, "doctorUid": doctorUid, "idPatient": patienID] 
+        let values =  ["appoinmentDay": appoinmentDay, "appoinmentHour": appoinmentHour, "doctorUid": doctorUid, "idPatient": patienID, "profileImageUrl": profileImageUrl]
         
         self.registerAppoinmnetwithId(doctorUID: doctorUid, values: values as [String : Any])
         
