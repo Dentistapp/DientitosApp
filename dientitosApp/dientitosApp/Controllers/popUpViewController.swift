@@ -47,8 +47,9 @@ class popUpViewController: UIViewController {
         
         let name = patient?.name!
         navigationItem.title = "Appoinment to \(name!)"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelVC))
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(addAppoinment))
+        
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
@@ -79,28 +80,35 @@ class popUpViewController: UIViewController {
         return dateString
     }
     
+    func getOut(action: UIAlertAction) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @objc func addAppoinment() {
-        
+        fetchPatientID()
         //Appointmnet es prueba
         let appoinmentDay = dateChange(datePicker: datePicker!)
         let doctorUid = fetchUserLoggedIn()
-        let patienID = patient?.uid
+        let patienID = patient?.uid!
+        //print(patienID)
        // let a = 23
         let appoinmentHour = hourChanged(datePicker: hourPicker!)
         
-        let values =  ["appoinmentDay": appoinmentDay, "appoinmentHour": appoinmentHour, "doctorUid": doctorUid]
+        let values =  ["appoinmentDay": appoinmentDay, "appoinmentHour": appoinmentHour, "doctorUid": doctorUid, "idPatient": patienID] 
         
-        self.registerAppoinmnetwithId(idPatient: patienID!, doctorUID: doctorUid, values: values)
+        self.registerAppoinmnetwithId(doctorUID: doctorUid, values: values as [String : Any])
+        
+        let alert = UIAlertController(title: "Appoinment Created", message: "Your Appoinment has been created", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true)
         
     }
     
-    private func registerAppoinmnetwithId(idPatient: String, doctorUID: String, values: [String: Any]){
+    private func registerAppoinmnetwithId( doctorUID: String, values: [String: Any]){
         let db = Firestore.firestore()
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
-        
-        
         
         db.collection("Citas").addDocument(data: values) { err in
             if let err = err {
@@ -133,6 +141,27 @@ class popUpViewController: UIViewController {
         }
         let error = "no encontre uid"
         return error
+    }
+    func fetchDocumentIdPerPatient() {
+            let db = Firestore.firestore()
+            let settings = db.settings
+            settings.areTimestampsInSnapshotsEnabled = true
+            db.settings = settings
+            
+            db.collection("myPatients").getDocuments() { (querySnapshot, err) in
+                
+                //let patient = Patient()
+                
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        
+                        let patientId = document.get("uid") as! String
+                        self.patient!.uid = patientId
+                        }
+                    }
+                }
     }
     
 

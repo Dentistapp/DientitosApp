@@ -53,14 +53,36 @@ class AddPatientViewController: UIViewController {
         checkPermission()
 
         guard let email = emailPatientTF.text,
-            let age = agePatientTF.text,
-            let name = namePatientTF.text,
-            let phone = phonePatientTF.text,
-            let appoinment = appointmentPatientTF.text,
-            let treatment = treatmentPatientTF.text else {
-                print("Form is not valid")
+            email != "" else {
+            AlertController.showAlert(inViewController: self, title: "Missing Email", message: "Please fill the emailbox")
                 return
+            }
+        guard let age = agePatientTF.text,
+            age != "" else {
+            AlertController.showAlert(inViewController: self, title: "Missing Age", message: "Please fill the age box")
+            return
+            }
+        guard let name = namePatientTF.text,
+            name != "" else {
+            AlertController.showAlert(inViewController: self, title: "Missing Name", message: "Please fill the name box")
+            return
         }
+        guard let phone = phonePatientTF.text,
+            phone != "" else {
+            AlertController.showAlert(inViewController: self, title: "Missing Phone", message: "Please fill the phone box")
+            return
+        }
+        guard let appoinment = appointmentPatientTF.text,
+            appoinment != "" else {
+            AlertController.showAlert(inViewController: self, title: "Missing last name", message: "Please fill the name box")
+            return
+        }
+        guard let treatment = treatmentPatientTF.text else {
+            AlertController.showAlert(inViewController: self, title: "Missing Name", message: "Please fill the treatment box")
+            return
+        }
+        
+        
         let doctorUid = fetchUserLoggedIn()
         let patientID = name + age
         print(patientID)
