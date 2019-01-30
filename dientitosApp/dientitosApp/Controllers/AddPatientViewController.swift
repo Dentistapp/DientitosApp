@@ -110,7 +110,6 @@ class AddPatientViewController: UIViewController {
                             
                             self.registerpatientIntoDBWithID(id: patientID, values: values)
                         }
-                        
                         print(url ?? "Tenemos la URL")
                         //Aqui tenemos el url
                     }
@@ -134,8 +133,6 @@ private func registerpatientIntoDBWithID(id: String, values: [String: Any]) {
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
-        
-
         
         db.collection("myPatients").addDocument(data: values) { err in
             if let err = err {
@@ -200,7 +197,7 @@ private func registerpatientIntoDBWithID(id: String, values: [String: Any]) {
                 print("success") }
         })
         default:
-            print("No se que esta pasando")
+            print("")
         }
     }
     

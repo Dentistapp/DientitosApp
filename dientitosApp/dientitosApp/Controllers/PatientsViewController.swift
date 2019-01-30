@@ -12,10 +12,19 @@ import Firebase
 class PatientsViewController: UIViewController {
     
     
+    lazy var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .blue
+        refreshControl.addTarget(self, action: #selector(requestData), for: .valueChanged)
+        
+        return refreshControl
+    }()
+    
     var patients = [Patient]()
     let cellId = "cellId"
     var myIndex = 0
     let patientDetailVC = PatientDetailViewController()
+
     
     @IBOutlet weak var patientTableView: UITableView!
     
@@ -23,20 +32,26 @@ class PatientsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        patientTableView.refreshControl = refresher
         self.navigationItem.title = "Patiens"
         
         patientTableView.register(PatientCell.self, forCellReuseIdentifier: cellId)
         
-        realodTable()
+      //  realodTable()
         fetchUser()
         
     }
     
-    func realodTable() {
-        DispatchQueue.main.async {
-            self.patientTableView.reloadData()
+    @objc func requestData() {
+        
+        let deadline = DispatchTime.now() + .milliseconds(700)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            self.fetchUserDeletingOldsValues()
+            self.refresher.endRefreshing()
         }
-    }
+        
+        }
+    
     func fetchUser() {
         let db = Firestore.firestore()
         let settings = db.settings
@@ -76,6 +91,54 @@ class PatientsViewController: UIViewController {
                     self.patients.append(patient)
                     DispatchQueue.main.async {
                     self.patientTableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    func fetchUserDeletingOldsValues() {
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        
+        db.collection("myPatients").getDocuments() { (querySnapshot, err) in
+            
+            self.patients.removeAll()
+            
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    
+                    let nameFound = document.get("name") as! String
+                    let emailFound = document.get("email") as! String
+                    let imageUrl = document.get("profilePatientURL") as! String
+                    let treatment = document.get("treatment") as! String
+                    let age = document.get("age") as! String
+                    let phone = document.get("phone") as! String
+                    let appoinment = document.get("appoinment") as? String
+                    let uid = document.get("idPatient") as! String
+                    
+                    let patient = Patient()
+                    patient.name = nameFound
+                    patient.email = emailFound
+                    patient.profileImagenUrl = imageUrl
+                    patient.treatment = treatment
+                    patient.age = age
+                    patient.phone = phone
+                    patient.appointment = appoinment
+                    patient.uid = uid
+                    
+                    
+                    print(patient.name!, patient.email ?? "not found")
+                    
+                    print("yes")
+                    self.patients.append(patient)
+                    DispatchQueue.main.async {
+                        self.patientTableView.reloadData()
                     }
                 }
             }
