@@ -23,12 +23,10 @@ class PatientDetailViewController: UIViewController {
     @IBOutlet weak var patientPhoneLabel: UILabel!
     @IBOutlet weak var patientEmailLabel: UILabel!
     var image = UIImage()
-    var name = ""
     var patient: Patient?
     
     
     @IBOutlet weak var tableView: UITableView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,9 +77,6 @@ class PatientDetailViewController: UIViewController {
         }
     }
     
-    
-    
-    
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,7 +87,6 @@ class PatientDetailViewController: UIViewController {
     }()
     
     func loadImageUsingCacheWithUrlString(urlString: String) {
-        
         //check cache for image first
         if let cacheimage = imageCache.object(forKey: urlString as AnyObject) {
             self.image = (cacheimage as! UIImage)
@@ -120,8 +114,6 @@ class PatientDetailViewController: UIViewController {
                 }
             }.resume()
         }
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -162,7 +154,6 @@ extension PatientDetailViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
-    
     
 }
 

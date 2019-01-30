@@ -15,17 +15,11 @@ class popUpViewController: UIViewController {
     
     private var datePicker: UIDatePicker?
     private var hourPicker: UIDatePicker?
-    
-    //instanciar el VC anterior a este let 
-    
-    //pasarle el paciente actual para que tenga el uid
-    //agregar campos de dia y hora y  obtener el uid del doctor loggeado
-    
+
     @IBOutlet weak var inputTextiel: UITextField!
     
     @IBOutlet weak var inputoHourTF: UITextField!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -86,12 +80,9 @@ class popUpViewController: UIViewController {
     
     @objc func addAppoinment() {
         fetchPatientID()
-        //Appointmnet es prueba
         let appoinmentDay = dateChange(datePicker: datePicker!)
         let doctorUid = fetchUserLoggedIn()
         let patienID = patient?.uid!
-        //print(patienID)
-       // let a = 23
         let appoinmentHour = hourChanged(datePicker: hourPicker!)
         
         let values =  ["appoinmentDay": appoinmentDay, "appoinmentHour": appoinmentHour, "doctorUid": doctorUid, "idPatient": patienID] 
@@ -125,14 +116,6 @@ class popUpViewController: UIViewController {
     }
     
     
-    
-    @IBAction func addPatientButtonPressed(_ sender: UIButton) {
-    }
-    
-    func fetchPatientID(){
-        
-    }
-    
     func fetchUserLoggedIn() -> String {
         let user = Auth.auth().currentUser
         if let user = user {
@@ -150,8 +133,6 @@ class popUpViewController: UIViewController {
             
             db.collection("myPatients").getDocuments() { (querySnapshot, err) in
                 
-                //let patient = Patient()
-                
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
@@ -161,9 +142,8 @@ class popUpViewController: UIViewController {
                         self.patient!.uid = patientId
                         }
                     }
-                }
+            }
     }
     
 
-      
 }
