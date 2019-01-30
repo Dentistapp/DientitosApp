@@ -11,7 +11,6 @@ import Firebase
 
 class PatientsViewController: UIViewController {
     
-    
     lazy var refresher: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .blue
@@ -37,8 +36,7 @@ class PatientsViewController: UIViewController {
         
         patientTableView.register(PatientCell.self, forCellReuseIdentifier: cellId)
         
-      //  realodTable()
-        fetchUser()
+        fetchUserDeletingOldsValues()
         
     }
     
@@ -49,54 +47,7 @@ class PatientsViewController: UIViewController {
             self.fetchUserDeletingOldsValues()
             self.refresher.endRefreshing()
         }
-        
-        }
-    
-    func fetchUser() {
-        let db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
-        
-        db.collection("myPatients").getDocuments() { (querySnapshot, err) in
-            
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    
-                    let nameFound = document.get("name") as! String
-                    let emailFound = document.get("email") as! String
-                    let imageUrl = document.get("profilePatientURL") as! String
-                    let treatment = document.get("treatment") as! String
-                    let age = document.get("age") as! String
-                    let phone = document.get("phone") as! String
-                    let appoinment = document.get("appoinment") as? String
-                    let uid = document.get("idPatient") as! String
-                    
-                    let patient = Patient()
-                    patient.name = nameFound
-                    patient.email = emailFound
-                    patient.profileImagenUrl = imageUrl
-                    patient.treatment = treatment
-                    patient.age = age
-                    patient.phone = phone
-                    patient.appointment = appoinment
-                    patient.uid = uid
-                    
-                    
-                    print(patient.name!, patient.email ?? "not found")
-                    
-                    print("yes")
-                    self.patients.append(patient)
-                    DispatchQueue.main.async {
-                    self.patientTableView.reloadData()
-                    }
-                }
-            }
-        }
     }
-    
     
     func fetchUserDeletingOldsValues() {
         let db = Firestore.firestore()
@@ -107,7 +58,6 @@ class PatientsViewController: UIViewController {
         db.collection("myPatients").getDocuments() { (querySnapshot, err) in
             
             self.patients.removeAll()
-            
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -132,10 +82,6 @@ class PatientsViewController: UIViewController {
                     patient.appointment = appoinment
                     patient.uid = uid
                     
-                    
-                    print(patient.name!, patient.email ?? "not found")
-                    
-                    print("yes")
                     self.patients.append(patient)
                     DispatchQueue.main.async {
                         self.patientTableView.reloadData()
@@ -155,7 +101,6 @@ class PatientsViewController: UIViewController {
         let patient = sender as? Patient
         patieneDetailVC?.patient = patient
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
@@ -195,14 +140,12 @@ class PatientCell: UITableViewCell {
         profileImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 48).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 48).isActive = true
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 
 extension PatientsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
