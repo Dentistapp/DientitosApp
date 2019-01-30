@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     
        guard let username =  Auth.auth().currentUser?.displayName else { return }
         testLabel.text = "Hello \(username)"
+
         
         
 

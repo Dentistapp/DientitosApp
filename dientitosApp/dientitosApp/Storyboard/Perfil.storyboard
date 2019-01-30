@@ -22,8 +22,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="user" id="sW6-nD-2aO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="vU3-0F-Ywj" kind="unwind" identifier="unwindToLoginVC" unwindAction="unwindToLoginVCWithSegue:" id="aQJ-Fq-Fvt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neY-aC-H66" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vU3-0F-Ywj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="39" y="23"/>
         </scene>

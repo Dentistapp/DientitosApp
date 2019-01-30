@@ -19,11 +19,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
-    
     @IBOutlet weak var buttonFacebook: UIButton!
+
     
-    
-    //Progress
+    //Progress animation
     let hud: JGProgressHUD = {
         let hud = JGProgressHUD(style: .light)
         hud.interactionType = .blockAllTouches
@@ -33,10 +32,16 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ()
         setupViews()
 
-        // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
+    
+    
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         
@@ -44,13 +49,11 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text,
             email != "" else {
                 AlertController.showAlert(inViewController: self, title: "Missing email", message: "Please fill the email box")
-                print("You miss email")
                 return
         }
         guard let password = passwordTextField.text,
             password != "" else {
                 AlertController.showAlert(inViewController: self, title: "Missing password", message: "Please fill the password box")
-                print("You miss name")
                 return
         }
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
@@ -58,33 +61,14 @@ class LoginViewController: UIViewController {
                 AlertController.showAlert(inViewController: self, title: "Error", message: error!.localizedDescription)
                 return
             }
-            guard let user = user else { return }
-                print(user.user.email ?? "MISSING EMAIL")
-                print(user.user.displayName ?? "MISSING DISPLAY NAME")
-                print(user.user.uid)
-            
-            
             self.performSegue(withIdentifier: "SignInSegue", sender: nil)
-            
         }
-        
     }
     
     
     @IBAction func registerButtonTapped(_ sender: UIButton) {
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-    
-    
     @objc func facebookButtonAction(sender: UIButton!) {
         print("Facebook login")
         hud.textLabel.text = "Logging in with Facebook..."
@@ -93,7 +77,6 @@ class LoginViewController: UIViewController {
         loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: self) { (result) in
             switch result {
             case .success(grantedPermissions: _, declinedPermissions: _, token: _):
-                print("Succesfully logged in Facebook")
                 self.signIntoFirebase()
             case .failed(let error):
                 print(error)
@@ -105,6 +88,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    
     fileprivate func signIntoFirebase(){
         guard let  authenticationToken = AccessToken.current?.authenticationToken else {return}
         let credential = FacebookAuthProvider.credential(withAccessToken: authenticationToken)
@@ -113,7 +97,6 @@ class LoginViewController: UIViewController {
                 print (error)
                 return
             }
-            print("Succesfully authenticated with Firebase")
             self.hud.dismiss(animated: true)
             self.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: "SignInSegue", sender: nil)
@@ -121,10 +104,18 @@ class LoginViewController: UIViewController {
         }
     }
     
+    
+
+    
+    @IBAction func unwindToLoginVC(segue: UIStoryboardSegue){
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
+   
     //MARK: Setup Button Facebook
     
     fileprivate func setupViews(){
-       
         
         buttonFacebook.backgroundColor = UIColor(named: "facebook")
         buttonFacebook.setImage(UIImage(named: "facebookLogo")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -133,18 +124,8 @@ class LoginViewController: UIViewController {
         buttonFacebook.setTitleColor(UIColor.white, for:.normal)
         buttonFacebook.addTarget(self, action: #selector(facebookButtonAction), for: .touchUpInside)
         self.view.addSubview(buttonFacebook)
-
-
-}
-//    button.setTitle("Login With Facebook", for: .normal)
-//    button.titleLabel?.font = UIFont.boldSystemFont(ofSize: Service.buttonTitleFontSize)
-//    button.setTitleColor(Service.buttonTitleColor, for: .normal)
-//    button.backgroundColor = Service.buttonBackgroundColorSignWithFacebook
-//    button.layer.masksToBounds = true
-//    button.layer.cornerRadius = Service.buttonCornerRadius
-//    button.setImage(UIImage(named: "facebookLogo")?.withRenderingMode(.alwaysOriginal), for: .normal)
-//    button.contentMode = .scaleAspectFit
-    
+        
+    }
     
     
 }
