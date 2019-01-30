@@ -7,14 +7,15 @@
 //
 
 import UIKit
-class CalendarViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    
 
+class CalendarViewController: UIViewController,UICollectionViewDelegate {
+    
+    
+//Outlets
     @IBOutlet weak var MonthLabel: UILabel!
     @IBOutlet weak var calendarCV: UICollectionView!
-    
-    
+
+//Variables
     let Months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
     let DaysOfMonth = ["Monday","Thuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
     var DaysInMonths = [31,28,31,30,31,30,31,31,30,31,30,31]
@@ -27,22 +28,21 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
     var leapYearCounter = 3
     var dayCounter = 0
     var highlightDate = -1
-    
     var dateString = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         currentMonth = Months[month]
         MonthLabel.text = "\(currentMonth) \(year)"
+        
         if weekday == 0 {
             weekday = 7
         }
         getStartDateDayPosition()
-        
     }
     
-    
-  
+
     //MARK: Configuration buttons next month and back month
     
     @IBAction func nextMonth(_ sender: Any) {
@@ -53,8 +53,7 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
             direction = 1
             month = 0
             year += 1
-            
-            
+ 
             if leapYearCounter  < 5 {
                 leapYearCounter += 1
             }
@@ -88,7 +87,6 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
         switch currentMonth {
         case "January":
             direction = -1
-            
             month = 11
             year -= 1
             
@@ -103,16 +101,14 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
             }
             
             getStartDateDayPosition()
-
             currentMonth = Months[month]
             MonthLabel.text = "\(currentMonth) \(year)"
             calendarCV.reloadData()
+            
         default:
             direction = -1
             month -= 1
-            
             getStartDateDayPosition()
-
             currentMonth = Months[month]
             MonthLabel.text = "\(currentMonth) \(year)"
             calendarCV.reloadData()
@@ -153,11 +149,13 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
             fatalError()
         }
     }
+
+ 
+}
+
+
+extension CalendarViewController: UICollectionViewDataSource {
     
-
-   
-
-    // MARK: - Collection View Configuration 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch direction {
         case 0:
@@ -171,6 +169,7 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
         }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Calendar", for: indexPath) as! DateCollectionViewCell
         cell.backgroundColor = UIColor.clear
@@ -181,7 +180,7 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
         if cell.isHidden{
             cell.isHidden = false
         }
-       
+        
         switch direction {
         case 0:
             cell.dateLabel.text = "\(indexPath.row + 1 - numberOfEmptyBox)"
@@ -217,18 +216,12 @@ class CalendarViewController: UIViewController,UICollectionViewDelegate, UIColle
         return cell
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //Aqui va el segue para que al dar clic se vaya al view de las citas
         dateString = "\(indexPath.row - positionIndex + 1) \(currentMonth) \(year)"
         highlightDate = indexPath.row
         collectionView.reloadData()
-        
-        
     }
-    
-    
-    
-    
+
     
 }
