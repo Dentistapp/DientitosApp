@@ -32,7 +32,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ()
+        
+        Auth.auth().addStateDidChangeListener() { auth, user in
+            if user != nil {
+                self.performSegue(withIdentifier: "SignInSegue", sender: nil) 
+            }
+        }
         setupViews()
 
     }

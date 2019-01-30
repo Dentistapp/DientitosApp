@@ -31,6 +31,10 @@ class HomeViewController: UIViewController {
         tableView.register(AppoinmentCellWithImage.self, forCellReuseIdentifier: cellId)
         
         fetchUserDeletingOldsAppoinmets()
+        
+        Auth.auth().addStateDidChangeListener { auth, user in
+           
+        }
     
     }
     
