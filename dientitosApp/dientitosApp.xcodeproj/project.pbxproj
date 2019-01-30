@@ -12,6 +12,7 @@
 		3A232EC521F99C620080CF40 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A232EC421F99C620080CF40 /* Extension.swift */; };
 		3A232EC721FA3BF70080CF40 /* PatientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A232EC621FA3BF70080CF40 /* PatientDetailViewController.swift */; };
 		3A232EC921FD7C320080CF40 /* popUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A232EC821FD7C320080CF40 /* popUpViewController.swift */; };
+		3A232ECB2201111F0080CF40 /* Citas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A232ECA2201111E0080CF40 /* Citas.swift */; };
 		3A28D78021EFB78B0082AF77 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28D77F21EFB78B0082AF77 /* AlertController.swift */; };
 		3A28D78E21F679690082AF77 /* AddPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28D78D21F679690082AF77 /* AddPatientViewController.swift */; };
 		3A28D79021F67A430082AF77 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28D78F21F67A430082AF77 /* Patient.swift */; };
@@ -62,6 +63,7 @@
 		3A232EC421F99C620080CF40 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		3A232EC621FA3BF70080CF40 /* PatientDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientDetailViewController.swift; sourceTree = "<group>"; };
 		3A232EC821FD7C320080CF40 /* popUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpViewController.swift; sourceTree = "<group>"; };
+		3A232ECA2201111E0080CF40 /* Citas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Citas.swift; sourceTree = "<group>"; };
 		3A28D77F21EFB78B0082AF77 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		3A28D78D21F679690082AF77 /* AddPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPatientViewController.swift; sourceTree = "<group>"; };
 		3A28D78F21F67A430082AF77 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				3A28D77F21EFB78B0082AF77 /* AlertController.swift */,
 				9BF84C8121FE6D2F0059FCF5 /* Calendar.swift */,
 				3A28D78F21F67A430082AF77 /* Patient.swift */,
+				3A232ECA2201111E0080CF40 /* Citas.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				9BF84C8221FE6D2F0059FCF5 /* Calendar.swift in Sources */,
 				9B4B507B21E82A39000913E7 /* RegisterViewController.swift in Sources */,
 				9BF84C8021FE6BC00059FCF5 /* DateCollectionViewCell.swift in Sources */,
+				3A232ECB2201111F0080CF40 /* Citas.swift in Sources */,
 				9B4B504821E165A8000913E7 /* ViewController.swift in Sources */,
 				3A232EC221F6A9D30080CF40 /* AddPatientController+handler.swift in Sources */,
 				3A232EC921FD7C320080CF40 /* popUpViewController.swift in Sources */,

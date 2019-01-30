@@ -9,13 +9,21 @@
 import UIKit
 import Firebase
 
-class PatientsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PatientsViewController: UIViewController {
     
+    lazy var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .blue
+        refreshControl.addTarget(self, action: #selector(requestData), for: .valueChanged)
+        
+        return refreshControl
+    }()
     
     var patients = [Patient]()
     let cellId = "cellId"
     var myIndex = 0
     let patientDetailVC = PatientDetailViewController()
+
     
     @IBOutlet weak var patientTableView: UITableView!
     
@@ -23,22 +31,25 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        patientTableView.refreshControl = refresher
         self.navigationItem.title = "Patiens"
         
         patientTableView.register(PatientCell.self, forCellReuseIdentifier: cellId)
         
-        //vcP.fetchUser()
-        realodTable()
-        fetchUser()
+        fetchUserDeletingOldsValues()
         
     }
     
-    func realodTable() {
-        DispatchQueue.main.async {
-            self.patientTableView.reloadData()
+    @objc func requestData() {
+        
+        let deadline = DispatchTime.now() + .milliseconds(700)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            self.fetchUserDeletingOldsValues()
+            self.refresher.endRefreshing()
         }
     }
-    func fetchUser() {
+    
+    func fetchUserDeletingOldsValues() {
         let db = Firestore.firestore()
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
@@ -46,8 +57,7 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
         
         db.collection("myPatients").getDocuments() { (querySnapshot, err) in
             
-            //let patient = Patient()
-            
+            self.patients.removeAll()
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -60,7 +70,7 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
                     let age = document.get("age") as! String
                     let phone = document.get("phone") as! String
                     let appoinment = document.get("appoinment") as? String
-                 //   let uid = document.get("uid") as! String
+                    let uid = document.get("idPatient") as! String
                     
                     let patient = Patient()
                     patient.name = nameFound
@@ -70,45 +80,17 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
                     patient.age = age
                     patient.phone = phone
                     patient.appointment = appoinment
-                   // patient.uid = uid
+                    patient.uid = uid
                     
-                    
-                    // print("User Found")
-                    //  print("\(document.documentID) => \(document.data())")
-                    print(patient.name!, patient.email ?? "not found")
-                    
-                    // print("qweqw")
-                    //print(name, email)
-                    print("yes")
-                    //self.patients.append(patient)
                     self.patients.append(patient)
                     DispatchQueue.main.async {
-                    self.patientTableView.reloadData()
+                        self.patientTableView.reloadData()
                     }
                 }
             }
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return patients.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! PatientCell
-        //we need to dequeue the cells for memory efficiency
-        let patient = patients[indexPath.row]
-        cell.textLabel?.text = patient.name
-        cell.detailTextLabel?.text = patient.email
-
-        if let profilePatientImageUrl = patient.profileImagenUrl {
-            
-            cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profilePatientImageUrl)
-       
-        }
-        return cell
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
@@ -120,26 +102,13 @@ class PatientsViewController: UIViewController, UITableViewDelegate, UITableView
         patieneDetailVC?.patient = patient
     }
     
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let patient = self.patients[indexPath.row]
         
-//        print(patient.name)
-//        print(patient.email)
-//
-//        patientDetailVC.name = patient.name! as! String
-//        if let patientName = patient.name {
-//            vc.patientNameLabel.text! = patientName
-//        }
-        
-        
      performSegue(withIdentifier: "patientDetailsegue", sender: patient)
     }
-    
 }
-
 
 class PatientCell: UITableViewCell {
     
@@ -154,7 +123,7 @@ class PatientCell: UITableViewCell {
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        //imageView.image = UIImage(named: "addingNewPacient")
+        imageView.image = UIImage(named: "user")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 24
         imageView.layer.masksToBounds = true
@@ -171,13 +140,33 @@ class PatientCell: UITableViewCell {
         profileImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 48).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 48).isActive = true
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-
-
 }
+
+extension PatientsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return patients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! PatientCell
+        //we need to dequeue the cells for memory efficiency
+        let patient = patients[indexPath.row]
+        cell.textLabel?.text = patient.name
+        cell.detailTextLabel?.text = patient.email
+        
+        if let profilePatientImageUrl = patient.profileImagenUrl {
+            
+            cell.profileImageView.loadImageUsingCacheWithUrlString(urlString: profilePatientImageUrl)
+            
+        }
+        return cell
+    }
+    
+}
+

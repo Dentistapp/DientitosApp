@@ -24,7 +24,6 @@ class RegisterViewController: UIViewController {
         navigationItem.title = "Register"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButton))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerButton))
-        // Do any additional setup after loading the view.
     }
     @objc func cancelButton(){
         self.dismiss(animated: true, completion: nil)
@@ -84,7 +83,6 @@ class RegisterViewController: UIViewController {
         }
         
     }
-    
 
     
 }
