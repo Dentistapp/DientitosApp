@@ -13,7 +13,7 @@ import FacebookCore
 import FacebookLogin
 import JGProgressHUD
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -39,14 +39,19 @@ class LoginViewController: UIViewController {
             }
         }
         setupViews()
+        delegateTextfields()
 
     }
     
+    func delegateTextfields() {
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+    }
     
-    
-    
-    
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         
