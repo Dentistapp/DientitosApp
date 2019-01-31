@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import Photos
 
-class AddPatientViewController: UIViewController {
+class AddPatientViewController: UIViewController, UITextFieldDelegate{
 
     var patients = [Patient]()
     
@@ -30,6 +30,22 @@ class AddPatientViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Patient", style: .plain, target: self, action: #selector(addPatient))
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButton))
+        
+        delegateTextFields()
+    }
+    
+    func delegateTextFields() {
+        self.namePatientTF.delegate = self
+        self.agePatientTF.delegate = self
+        self.phonePatientTF.delegate = self
+        self.appointmentPatientTF.delegate = self
+        self.treatmentPatientTF.delegate = self
+        self.emailPatientTF.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     func fetchUserLoggedIn() -> String {

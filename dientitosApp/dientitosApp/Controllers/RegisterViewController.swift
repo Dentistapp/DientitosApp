@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -24,9 +24,22 @@ class RegisterViewController: UIViewController {
         navigationItem.title = "Register"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelButton))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(registerButton))
+        
+        delegateTextFields()
     }
     @objc func cancelButton(){
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func delegateTextFields() {
+        self.nameTextField.delegate = self
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     func getOut(action: UIAlertAction) {
