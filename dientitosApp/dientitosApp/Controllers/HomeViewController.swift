@@ -140,7 +140,7 @@ class HomeViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let appoinment = self.appoinments[indexPath.row]
+        _ = self.appoinments[indexPath.row]
     }
    
 }
