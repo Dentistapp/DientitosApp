@@ -13,6 +13,14 @@ import Firebase
 class HomeViewController: UIViewController {
 
     
+    lazy var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .blue
+        refreshControl.addTarget(self, action: #selector(requestData), for: .valueChanged)
+        
+        return refreshControl
+    }()
+    
     var appoinments = [Citas]()
     let cellId = "cellId"
     
@@ -25,14 +33,60 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        
+        tableView.refreshControl = refresher
+    
        guard let username =  Auth.auth().currentUser?.displayName else { return }
-        testLabel.text = "Hello \(username)"
+        testLabel.text = "Hello Doctor \(username)"
 
         tableView.register(AppoinmentCellWithImage.self, forCellReuseIdentifier: cellId)
         
         fetchUserDeletingOldsAppoinmets()
+        
+        tableView.allowsSelectionDuringEditing = true
     
     }
+    
+    @objc func requestData() {
+        
+        let deadline = DispatchTime.now() + .milliseconds(700)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            self.fetchUserDeletingOldsAppoinmets()
+            self.refresher.endRefreshing()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let appoinment = self.appoinments[indexPath.row]
+        
+        guard let documentId = appoinment.appoinmentID else {
+            return
+        }
+        
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        
+        
+        db.collection("Citas").document(documentId).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+                return
+            } else {
+                self.appoinments.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                print("Document successfully removed!")
+            }
+
+        }
+    }
+    
     
     func fetchUserDeletingOldsAppoinmets() {
         let db = Firestore.firestore()
@@ -41,6 +95,7 @@ class HomeViewController: UIViewController {
         db.settings = settings
         
         db.collection("Citas").getDocuments() { (querySnapshot, err) in
+            
             
             self.appoinments.removeAll()
             if let err = err {
@@ -53,6 +108,7 @@ class HomeViewController: UIViewController {
                     let imageUrlFound = document.get("profileImageUrl") as! String
                     let doctorUidFound = document.get("doctorUid") as! String
                     let patientIdFound = document.get("idPatient") as! String
+                    let appoinmentID = document.documentID
                     
                     let appoinment = Citas()
                     appoinment.appoinmentHour = appoinmentHourFound
@@ -60,6 +116,7 @@ class HomeViewController: UIViewController {
                     appoinment.profileImageUrl = imageUrlFound
                     appoinment.doctorUid = doctorUidFound
                     appoinment.idPatient = patientIdFound
+                    appoinment.appoinmentID = appoinmentID
                     
                     self.appoinments.append(appoinment)
                     DispatchQueue.main.async {
@@ -70,6 +127,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
@@ -80,12 +138,10 @@ class HomeViewController: UIViewController {
         patieneDetailVC?.patient = patient
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        let appoinment = self.appoinments[indexPath.row]
-//
-//        performSegue(withIdentifier: "patientDetailsegue", sender: patient)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let appoinment = self.appoinments[indexPath.row]
+    }
    
 }
 
