@@ -12,6 +12,14 @@ import Firebase
 
 class HomeViewController: UIViewController {
 
+    lazy var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .blue
+        refreshControl.addTarget(self, action: #selector(requestData), for: .valueChanged)
+        
+        return refreshControl
+    }()
+    
     
     var appoinments = [Citas]()
     let cellId = "cellId"
