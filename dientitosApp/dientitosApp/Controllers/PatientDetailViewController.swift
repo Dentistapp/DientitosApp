@@ -11,6 +11,14 @@ import Firebase
 
 class PatientDetailViewController: UIViewController {
     
+    lazy var refresher: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = .blue
+        refreshControl.addTarget(self, action: #selector(requestData), for: .valueChanged)
+        
+        return refreshControl
+    }()
+    
     var appoinments = [Citas]()
     let imageCache = NSCache<AnyObject, AnyObject>()
     let cellId = "Cell"
@@ -31,6 +39,7 @@ class PatientDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         patientDetail()
+        tableView.refreshControl = refresher
 
         tableView.register(AppoinmentCell.self, forCellReuseIdentifier: cellId)
         
@@ -39,15 +48,36 @@ class PatientDetailViewController: UIViewController {
         
     }
     
+    @objc func requestData() {
+        
+        let deadline = DispatchTime.now() + .milliseconds(700)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            self.fetchAppoinment()
+            self.refresher.endRefreshing()
+        }
+    }
+    
     func realodTable() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
+    func fetchUserLoggedIn() -> String {
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let uid = user.uid
+            return uid;
+        }
+        let error = "no encontre uid"
+        return error
+    }
+    
     func fetchAppoinment() {
     let db = Firestore.firestore()
         let settings = db.settings
+        let currentDoctor = fetchUserLoggedIn()
+        let currentPatient = patient?.uid
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         
@@ -68,9 +98,12 @@ class PatientDetailViewController: UIViewController {
                     appoinment.doctorUid = doctorUidFound
                     appoinment.idPatient = patientUidFound
                     
-                    self.appoinments.append(appoinment)
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                    
+                    if currentDoctor == doctorUidFound && currentPatient == patientUidFound {
+                        self.appoinments.append(appoinment)
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
                     }
                 }
             }
