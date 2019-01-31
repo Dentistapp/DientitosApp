@@ -100,6 +100,7 @@ class HomeViewController: UIViewController {
         
         db.collection("Citas").getDocuments() { (querySnapshot, err) in
             
+            
             self.appoinments.removeAll()
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -111,6 +112,7 @@ class HomeViewController: UIViewController {
                     let imageUrlFound = document.get("profileImageUrl") as! String
                     let doctorUidFound = document.get("doctorUid") as! String
                     let patientIdFound = document.get("idPatient") as! String
+                    let appoinmentID = document.documentID
                     
                     let appoinment = Citas()
                     appoinment.appoinmentHour = appoinmentHourFound
@@ -118,6 +120,7 @@ class HomeViewController: UIViewController {
                     appoinment.profileImageUrl = imageUrlFound
                     appoinment.doctorUid = doctorUidFound
                     appoinment.idPatient = patientIdFound
+                    appoinment.appoinmentId = appoinmentID
                     
                     self.appoinments.append(appoinment)
                     DispatchQueue.main.async {
