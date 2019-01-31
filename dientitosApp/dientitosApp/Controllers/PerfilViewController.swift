@@ -8,14 +8,50 @@
 
 import UIKit
 import Firebase
+import FacebookLogin
+import FacebookCore
 
 class PerfilViewController: UIViewController {
+    
+    let connection = GraphRequestConnection()
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        facebook()
+
 
     }
+    func facebook() {
+        connection.add(GraphRequest(graphPath: "/me")) { httpResponse, result in
+            switch result {
+            case .success(let response):
+                print("Graph Request Succeeded: \(response)")
+            case .failed(let error):
+                print("Graph Request Failed: \(error)")
+            }
+        }
+        connection.start()
+    }
+    
+    struct MyProfileRequest: GraphRequestProtocol {
+        struct Response: GraphResponseProtocol {
+            init(rawResponse: Any?) {
+                // Decode JSON from rawResponse into other properties here.
+            }
+        }
+        
+        var graphPath = "/me"
+        var parameters: [String : Any]? = ["fields": "id, name"]
+        var accessToken = AccessToken.current
+        var httpMethod: GraphRequestHTTPMethod = .GET
+        var apiVersion: GraphAPIVersion = .defaultVersion
+    }
+    
+    
+
     
     // MARK: - Custom Sign Out Button
     

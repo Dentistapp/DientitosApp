@@ -82,7 +82,8 @@ class PatientDetailViewController: UIViewController {
         db.settings = settings
         
         db.collection("Citas").getDocuments { (QuerySnapshot, error) in
-            
+         
+            self.appoinments.removeAll()
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
