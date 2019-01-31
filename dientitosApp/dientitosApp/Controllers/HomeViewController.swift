@@ -33,6 +33,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        tableView.refreshControl = refresher
+        
        guard let username =  Auth.auth().currentUser?.displayName else { return }
         testLabel.text = "Hello \(username)"
 
