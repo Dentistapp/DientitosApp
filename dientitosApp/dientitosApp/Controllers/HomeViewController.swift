@@ -64,7 +64,15 @@ class HomeViewController: UIViewController {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+    func fetchUserLoggedIn() -> String {
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let uid = user.uid
+            return uid;
+        }
+        let error = "no encontre uid"
+        return error
+    }
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         let appoinment = self.appoinments[indexPath.row]
@@ -95,6 +103,7 @@ class HomeViewController: UIViewController {
     func fetchUserDeletingOldsAppoinmets() {
         let db = Firestore.firestore()
         let settings = db.settings
+        let doctorID = fetchUserLoggedIn()
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         
@@ -122,9 +131,12 @@ class HomeViewController: UIViewController {
                     appoinment.idPatient = patientIdFound
                     appoinment.appoinmentId = appoinmentID
                     
-                    self.appoinments.append(appoinment)
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                    
+                    if doctorID == doctorUidFound {
+                        self.appoinments.append(appoinment)
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
                     }
                 }
             }

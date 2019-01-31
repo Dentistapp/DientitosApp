@@ -40,6 +40,16 @@ class PatientsViewController: UIViewController {
         
     }
     
+    func fetchUserLoggedIn() -> String {
+        let user = Auth.auth().currentUser
+        if let user = user {
+            let uid = user.uid
+            return uid;
+        }
+        let error = "no encontre uid"
+        return error
+    }
+    
     @objc func requestData() {
         
         let deadline = DispatchTime.now() + .milliseconds(700)
@@ -52,6 +62,7 @@ class PatientsViewController: UIViewController {
     func fetchUserDeletingOldsValues() {
         let db = Firestore.firestore()
         let settings = db.settings
+        let DoctorId = fetchUserLoggedIn()
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         
@@ -62,7 +73,6 @@ class PatientsViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    
                     let nameFound = document.get("name") as! String
                     let emailFound = document.get("email") as! String
                     let imageUrl = document.get("profilePatientURL") as! String
@@ -71,6 +81,7 @@ class PatientsViewController: UIViewController {
                     let phone = document.get("phone") as! String
                     let appoinment = document.get("appoinment") as? String
                     let uid = document.get("idPatient") as! String
+                    let doctorIdFound = document.get("idDoctor") as? String
                     
                     let patient = Patient()
                     patient.name = nameFound
@@ -81,11 +92,16 @@ class PatientsViewController: UIViewController {
                     patient.phone = phone
                     patient.appointment = appoinment
                     patient.uid = uid
+                    patient.doctorID = doctorIdFound
                     
-                    self.patients.append(patient)
-                    DispatchQueue.main.async {
-                        self.patientTableView.reloadData()
+                    if DoctorId == doctorIdFound{
+                        self.patients.append(patient)
+                        DispatchQueue.main.async {
+                            self.patientTableView.reloadData()
+                        }
                     }
+                    
+
                 }
             }
         }

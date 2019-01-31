@@ -17,4 +17,5 @@ class Patient: NSObject {
     var uid: String?
     var profileImagenUrl: String?
     var lastName: String?
+    var doctorID: String?
 }
