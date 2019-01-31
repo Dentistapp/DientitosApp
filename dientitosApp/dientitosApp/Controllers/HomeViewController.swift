@@ -57,6 +57,37 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let appoinment = self.appoinments[indexPath.row]
+        
+        guard let documentId = appoinment.appoinmentId else {
+            return
+        }
+        
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        
+        
+        db.collection("Citas").document(documentId).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+                return
+            } else {
+                self.appoinments.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                print("Document successfully removed!")
+            }
+            
+        }
+    }
+    
     func fetchUserDeletingOldsAppoinmets() {
         let db = Firestore.firestore()
         let settings = db.settings

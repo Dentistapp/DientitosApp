@@ -13,4 +13,5 @@ class Citas: NSObject {
     var doctorUid: String?
     var idPatient: String?
     var profileImageUrl: String?
+    var appoinmentId: String?
 }
