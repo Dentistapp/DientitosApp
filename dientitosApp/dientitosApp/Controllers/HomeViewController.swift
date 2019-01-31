@@ -43,6 +43,8 @@ class HomeViewController: UIViewController {
         Auth.auth().addStateDidChangeListener { auth, user in
            
         }
+        tableView.allowsSelectionDuringEditing = true
+
     
     }
     
