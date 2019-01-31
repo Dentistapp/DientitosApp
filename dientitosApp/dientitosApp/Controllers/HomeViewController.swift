@@ -33,6 +33,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        tableView.allowsMultipleSelectionDuringEditing = true
+
+        
         tableView.refreshControl = refresher
         
        guard let username =  Auth.auth().currentUser?.displayName else { return }
@@ -45,7 +48,6 @@ class HomeViewController: UIViewController {
         Auth.auth().addStateDidChangeListener { auth, user in
            
         }
-        tableView.allowsSelectionDuringEditing = true
 
     
     }
@@ -63,7 +65,7 @@ class HomeViewController: UIViewController {
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         let appoinment = self.appoinments[indexPath.row]
         
