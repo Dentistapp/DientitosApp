@@ -46,6 +46,15 @@ class HomeViewController: UIViewController {
     
     }
     
+    @objc func requestData() {
+        
+        let deadline = DispatchTime.now() + .milliseconds(700)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            self.fetchUserDeletingOldsAppoinmets()
+            self.refresher.endRefreshing()
+        }
+    }
+    
     func fetchUserDeletingOldsAppoinmets() {
         let db = Firestore.firestore()
         let settings = db.settings
