@@ -42,32 +42,7 @@ class PerfilViewController: UIViewController {
         }
     }
     
-    func configureMail() -> MFMailComposeViewController {
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
-        mailComposerVC.setToRecipients(["\(String(describing: userEmail))"])
-        mailComposerVC.setSubject("Treatment Recommendations")
-        mailComposerVC.setMessageBody("", isHTML: false)
-        
-        return mailComposerVC
-    }
-    
-    func showMailError()  {
-        let sendMailErrorAlert = UIAlertController(title: "Could not send email", message: "Your divice could not send email", preferredStyle: .alert)
-        let dismiss = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        sendMailErrorAlert.addAction(dismiss)
-        self.present(sendMailErrorAlert,animated: true, completion: nil )
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        
-        controller.dismiss(animated: true, completion: nil)
-        
-    }
-    
-    
-    
-    
+   
     
     @objc func handleSignOutButtonTapped(_ sender: Any){
         
@@ -114,4 +89,32 @@ class PerfilViewController: UIViewController {
     
 }
 
-
+extension PerfilViewController: MFMailComposeViewControllerDelegate{
+    
+    func configureMail() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        mailComposerVC.setToRecipients(["test@test.com"])
+       // mailComposerVC.setToRecipients(["\(String(describing: userEmail))"])
+        mailComposerVC.setSubject("Treatment Recommendations")
+        mailComposerVC.setMessageBody("This is a test", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showMailError()  {
+        let sendMailErrorAlert = UIAlertController(title: "Could not send email", message: "Your divice could not send email", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        sendMailErrorAlert.addAction(dismiss)
+        self.present(sendMailErrorAlert,animated: true, completion: nil )
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        controller.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    
+}
