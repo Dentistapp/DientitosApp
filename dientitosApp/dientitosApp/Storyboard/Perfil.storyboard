@@ -19,29 +19,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvV-di-RF7">
-                                <rect key="frame" x="166" y="271" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="321" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yCx-yZ-rNr">
-                                <rect key="frame" x="67" y="95" width="240" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QsN-On-f3f">
+                                <rect key="frame" x="164" y="456" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="emailButtonTapped:" destination="ziS-yq-xze" eventType="touchUpInside" id="R2t-Si-qiV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-83-m87">
+                                <rect key="frame" x="16" y="376" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="addingNewPacient" translatesAutoresizingMaskIntoConstraints="NO" id="yCx-yZ-rNr">
+                                <rect key="frame" x="122" y="96" width="130" height="180"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gvV-di-RF7" firstAttribute="centerX" secondItem="yCx-yZ-rNr" secondAttribute="centerX" id="X0m-CL-v5n"/>
-                            <constraint firstItem="FhG-cF-gai" firstAttribute="trailing" secondItem="yCx-yZ-rNr" secondAttribute="trailing" constant="68" id="f6k-NI-fxF"/>
-                            <constraint firstItem="gvV-di-RF7" firstAttribute="top" secondItem="yCx-yZ-rNr" secondAttribute="bottom" constant="48" id="hnp-aL-t8z"/>
-                            <constraint firstItem="yCx-yZ-rNr" firstAttribute="top" secondItem="FhG-cF-gai" secondAttribute="top" constant="75" id="sxn-WK-504"/>
-                            <constraint firstItem="yCx-yZ-rNr" firstAttribute="leading" secondItem="FhG-cF-gai" secondAttribute="leading" constant="67" id="taw-sg-WmZ"/>
-                            <constraint firstItem="FhG-cF-gai" firstAttribute="bottom" secondItem="gvV-di-RF7" secondAttribute="bottom" constant="326" id="w1q-Bf-Qec"/>
+                            <constraint firstItem="FhG-cF-gai" firstAttribute="trailing" secondItem="gvV-di-RF7" secondAttribute="trailing" constant="16" id="3eU-8s-0wX"/>
+                            <constraint firstItem="gvV-di-RF7" firstAttribute="top" secondItem="yCx-yZ-rNr" secondAttribute="bottom" constant="45" id="3mK-GE-ZhU"/>
+                            <constraint firstItem="yCx-yZ-rNr" firstAttribute="top" secondItem="FhG-cF-gai" secondAttribute="top" constant="76" id="CId-7l-zoH"/>
+                            <constraint firstItem="yCx-yZ-rNr" firstAttribute="leading" secondItem="FhG-cF-gai" secondAttribute="leading" constant="122" id="R6H-O2-l60"/>
+                            <constraint firstItem="FhG-cF-gai" firstAttribute="trailing" secondItem="QsN-On-f3f" secondAttribute="trailing" constant="165" id="RoN-BB-Bt1"/>
+                            <constraint firstItem="QsN-On-f3f" firstAttribute="leading" secondItem="FhG-cF-gai" secondAttribute="leading" constant="164" id="WKv-4e-sEh"/>
+                            <constraint firstItem="4D3-83-m87" firstAttribute="leading" secondItem="FhG-cF-gai" secondAttribute="leading" constant="16" id="Ywb-Nq-1MR"/>
+                            <constraint firstItem="FhG-cF-gai" firstAttribute="trailing" secondItem="yCx-yZ-rNr" secondAttribute="trailing" constant="123" id="aCV-47-Ah8"/>
+                            <constraint firstItem="FhG-cF-gai" firstAttribute="trailing" secondItem="4D3-83-m87" secondAttribute="trailing" constant="16" id="kna-8x-EmJ"/>
+                            <constraint firstItem="gvV-di-RF7" firstAttribute="leading" secondItem="FhG-cF-gai" secondAttribute="leading" constant="16" id="mWD-Oh-Awf"/>
+                            <constraint firstItem="FhG-cF-gai" firstAttribute="bottom" secondItem="QsN-On-f3f" secondAttribute="bottom" constant="132" id="sL9-aY-QKr"/>
+                            <constraint firstItem="4D3-83-m87" firstAttribute="top" secondItem="gvV-di-RF7" secondAttribute="bottom" constant="31" id="xXh-ZQ-9jk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FhG-cF-gai"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="user" id="sW6-nD-2aO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="emailButton" destination="QsN-On-f3f" id="hHz-EQ-N2w"/>
+                        <outlet property="emailLabel" destination="4D3-83-m87" id="yrL-Pp-9RV"/>
+                        <outlet property="nameLabel" destination="gvV-di-RF7" id="17l-Kt-yzQ"/>
+                        <outlet property="userImage" destination="yCx-yZ-rNr" id="bbC-Bw-1a3"/>
                         <segue destination="vU3-0F-Ywj" kind="unwind" identifier="unwindToLoginVC" unwindAction="unwindToLoginVCWithSegue:" id="aQJ-Fq-Fvt"/>
                     </connections>
                 </viewController>
@@ -52,6 +75,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addingNewPacient" width="180" height="180"/>
         <image name="user" width="37.5" height="37.5"/>
     </resources>
 </document>
