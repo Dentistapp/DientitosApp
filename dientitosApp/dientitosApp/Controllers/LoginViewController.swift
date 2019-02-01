@@ -108,9 +108,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             self.hud.dismiss(animated: true)
-            self.dismiss(animated: true, completion: nil)
             self.performSegue(withIdentifier: "SignInSegue", sender: nil)
-
         }
     }
     
