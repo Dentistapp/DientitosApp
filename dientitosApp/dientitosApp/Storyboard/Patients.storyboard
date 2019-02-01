@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -272,7 +273,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.36955765613021158" green="0.20187998176839445" blue="0.84382931472081224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="Color"/>
                         <constraints>
                             <constraint firstItem="Id1-JP-gd7" firstAttribute="top" secondItem="fio-DA-DUH" secondAttribute="bottom" constant="37" id="Yb6-H8-tk9"/>
                             <constraint firstItem="fio-DA-DUH" firstAttribute="leading" secondItem="l3w-30-j5j" secondAttribute="leading" constant="16" id="Yoo-qB-Kzh"/>
@@ -300,9 +301,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To add a patient fills all the fields " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3x-v1-L71">
-                                <rect key="frame" x="32" y="93" width="311" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To add a patient fills all the fields " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3x-v1-L71">
+                                <rect key="frame" x="32" y="93" width="311" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -345,12 +346,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="addingNewPacient" translatesAutoresizingMaskIntoConstraints="NO" id="tGm-ud-8d7">
-                                <rect key="frame" x="144" y="151" width="87" height="87"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="87" id="S6Z-AO-oUM"/>
-                                </constraints>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="az6-Uu-Sad">
                                 <rect key="frame" x="16" y="373" width="343" height="30"/>
                                 <constraints>
@@ -360,6 +355,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" image="addingNewPacient" translatesAutoresizingMaskIntoConstraints="NO" id="tGm-ud-8d7">
+                                <rect key="frame" x="144" y="144" width="87" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="S6Z-AO-oUM"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -367,6 +368,7 @@
                             <constraint firstItem="avQ-q2-PGo" firstAttribute="top" secondItem="az6-Uu-Sad" secondAttribute="bottom" constant="8" id="28c-GL-w7c"/>
                             <constraint firstItem="K6I-Xt-uRA" firstAttribute="trailing" secondItem="avQ-q2-PGo" secondAttribute="trailing" constant="16" id="7JZ-4r-Qp3"/>
                             <constraint firstItem="K6I-Xt-uRA" firstAttribute="trailing" secondItem="flF-N8-fnI" secondAttribute="trailing" constant="16" id="7c2-2a-BRI"/>
+                            <constraint firstItem="gMW-yq-6vR" firstAttribute="top" secondItem="tGm-ud-8d7" secondAttribute="bottom" constant="28" id="7py-9B-9zT"/>
                             <constraint firstItem="q3x-v1-L71" firstAttribute="leading" secondItem="K6I-Xt-uRA" secondAttribute="leading" constant="32" id="9YU-Tc-YBA"/>
                             <constraint firstItem="az6-Uu-Sad" firstAttribute="leading" secondItem="K6I-Xt-uRA" secondAttribute="leading" constant="16" id="C6B-a4-gOq"/>
                             <constraint firstItem="K6I-Xt-uRA" firstAttribute="trailing" secondItem="vbf-Kj-qzA" secondAttribute="trailing" constant="16" id="Eq2-dP-OB2"/>
@@ -382,7 +384,7 @@
                             <constraint firstItem="avQ-q2-PGo" firstAttribute="leading" secondItem="K6I-Xt-uRA" secondAttribute="leading" constant="16" id="jiW-9v-3dZ"/>
                             <constraint firstItem="K6I-Xt-uRA" firstAttribute="trailing" secondItem="gMW-yq-6vR" secondAttribute="trailing" constant="16" id="kZp-Z7-rdI"/>
                             <constraint firstItem="flF-N8-fnI" firstAttribute="top" secondItem="gMW-yq-6vR" secondAttribute="bottom" constant="8" id="lGL-6k-KaS"/>
-                            <constraint firstItem="tGm-ud-8d7" firstAttribute="top" secondItem="q3x-v1-L71" secondAttribute="bottom" constant="31" id="mlc-3p-jGN"/>
+                            <constraint firstItem="tGm-ud-8d7" firstAttribute="top" secondItem="q3x-v1-L71" secondAttribute="bottom" constant="28" id="mlc-3p-jGN"/>
                             <constraint firstItem="flF-N8-fnI" firstAttribute="leading" secondItem="K6I-Xt-uRA" secondAttribute="leading" constant="16" id="nai-Xh-qZL"/>
                             <constraint firstItem="gMW-yq-6vR" firstAttribute="top" secondItem="K6I-Xt-uRA" secondAttribute="top" constant="195" id="orK-so-ewo"/>
                             <constraint firstItem="K6I-Xt-uRA" firstAttribute="trailing" secondItem="q3x-v1-L71" secondAttribute="trailing" constant="32" id="p6u-xR-I6V"/>
@@ -445,5 +447,8 @@
     <resources>
         <image name="addingNewPacient" width="180" height="180"/>
         <image name="patients" width="37.5" height="37.5"/>
+        <namedColor name="Color">
+            <color red="0.62745098039215685" green="0.92941176470588238" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

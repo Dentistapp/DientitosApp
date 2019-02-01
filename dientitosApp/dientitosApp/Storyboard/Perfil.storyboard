@@ -17,7 +17,26 @@
                     <view key="view" contentMode="scaleToFill" id="WWD-EM-6YF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvV-di-RF7">
+                                <rect key="frame" x="166" y="271" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yCx-yZ-rNr">
+                                <rect key="frame" x="67" y="95" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gvV-di-RF7" firstAttribute="centerX" secondItem="yCx-yZ-rNr" secondAttribute="centerX" id="X0m-CL-v5n"/>
+                            <constraint firstItem="FhG-cF-gai" firstAttribute="trailing" secondItem="yCx-yZ-rNr" secondAttribute="trailing" constant="68" id="f6k-NI-fxF"/>
+                            <constraint firstItem="gvV-di-RF7" firstAttribute="top" secondItem="yCx-yZ-rNr" secondAttribute="bottom" constant="48" id="hnp-aL-t8z"/>
+                            <constraint firstItem="yCx-yZ-rNr" firstAttribute="top" secondItem="FhG-cF-gai" secondAttribute="top" constant="75" id="sxn-WK-504"/>
+                            <constraint firstItem="yCx-yZ-rNr" firstAttribute="leading" secondItem="FhG-cF-gai" secondAttribute="leading" constant="67" id="taw-sg-WmZ"/>
+                            <constraint firstItem="FhG-cF-gai" firstAttribute="bottom" secondItem="gvV-di-RF7" secondAttribute="bottom" constant="326" id="w1q-Bf-Qec"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FhG-cF-gai"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Perfil" image="user" id="sW6-nD-2aO"/>
@@ -29,7 +48,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neY-aC-H66" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vU3-0F-Ywj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="39" y="23"/>
+            <point key="canvasLocation" x="37.600000000000001" y="22.938530734632685"/>
         </scene>
     </scenes>
     <resources>

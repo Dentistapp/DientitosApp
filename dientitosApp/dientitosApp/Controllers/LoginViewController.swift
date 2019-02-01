@@ -135,6 +135,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         buttonFacebook.addTarget(self, action: #selector(facebookButtonAction), for: .touchUpInside)
         self.view.addSubview(buttonFacebook)
         
+        signInButton.layer.cornerRadius = signInButton.frame.height / 2
+        signInButton.layer.borderColor = UIColor.red.cgColor
+        
+     
+        
+        
+        
     }
     
     

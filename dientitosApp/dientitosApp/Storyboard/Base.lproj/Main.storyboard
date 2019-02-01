@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +33,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZ9-Ox-sCk">
                                 <rect key="frame" x="163" y="338" width="47" height="30"/>
-                                <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="Color"/>
                                 <state key="normal" title="Sing In"/>
                                 <connections>
                                     <action selector="signInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7uw-s6-l84"/>
@@ -94,7 +95,7 @@
                         <outlet property="passwordTextField" destination="c4F-2h-Koc" id="RF6-Ae-FgR"/>
                         <outlet property="registerButton" destination="av0-Ba-joZ" id="eZc-D2-2DM"/>
                         <outlet property="signInButton" destination="hZ9-Ox-sCk" id="pie-Zt-dC3"/>
-                        <segue destination="t69-sH-mJH" kind="show" identifier="SignInSegue" id="nbq-W6-VuV"/>
+                        <segue destination="t69-sH-mJH" kind="presentation" identifier="SignInSegue" id="nbq-W6-VuV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -109,14 +110,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Someone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-ud-DM3">
-                                <rect key="frame" x="129.5" y="55" width="116" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iZm-2p-V6L">
-                                <rect key="frame" x="16" y="217" width="343" height="344"/>
+                                <rect key="frame" x="16" y="262" width="343" height="299"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="0VR-cX-o5h" id="UNo-JT-rmI"/>
@@ -124,33 +119,48 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proximas Citas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rm-Gp-XQK">
-                                <rect key="frame" x="16" y="188" width="113" height="21"/>
+                                <rect key="frame" x="16" y="233" width="113" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeY-13-LfM">
-                                <rect key="frame" x="0.0" y="179" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="224" width="375" height="1"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="6ED-Ru-VIc"/>
                                 </constraints>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YV-Cm-cqU">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Welcome!!" largeTitleDisplayMode="never" id="tHY-Sr-Ezh"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Someone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-ud-DM3">
+                                <rect key="frame" x="16" y="88" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hH2-ud-DM3" firstAttribute="top" secondItem="91L-NA-lkG" secondAttribute="top" constant="35" id="7yS-J8-1Wf"/>
-                            <constraint firstItem="hH2-ud-DM3" firstAttribute="leading" secondItem="91L-NA-lkG" secondAttribute="leading" constant="129.5" id="Cos-A8-MdS"/>
+                            <constraint firstItem="hH2-ud-DM3" firstAttribute="leading" secondItem="91L-NA-lkG" secondAttribute="leading" constant="16" id="Cos-A8-MdS"/>
                             <constraint firstItem="91L-NA-lkG" firstAttribute="trailing" secondItem="7rm-Gp-XQK" secondAttribute="trailing" constant="246" id="E7O-do-aLA"/>
-                            <constraint firstItem="91L-NA-lkG" firstAttribute="trailing" secondItem="hH2-ud-DM3" secondAttribute="trailing" constant="129.5" id="HVs-58-Kyg"/>
+                            <constraint firstItem="91L-NA-lkG" firstAttribute="trailing" secondItem="hH2-ud-DM3" secondAttribute="trailing" constant="16" id="HVs-58-Kyg"/>
+                            <constraint firstItem="hH2-ud-DM3" firstAttribute="top" secondItem="7YV-Cm-cqU" secondAttribute="bottom" constant="24" id="KGY-K0-kwJ"/>
                             <constraint firstItem="oeY-13-LfM" firstAttribute="leading" secondItem="490-RC-eoB" secondAttribute="leading" id="L32-EU-ReC"/>
                             <constraint firstItem="91L-NA-lkG" firstAttribute="bottom" secondItem="iZm-2p-V6L" secondAttribute="bottom" constant="57" id="OQp-VM-c02"/>
-                            <constraint firstItem="oeY-13-LfM" firstAttribute="top" secondItem="hH2-ud-DM3" secondAttribute="bottom" constant="103" id="PRd-Zy-Jwn"/>
+                            <constraint firstItem="oeY-13-LfM" firstAttribute="top" secondItem="hH2-ud-DM3" secondAttribute="bottom" constant="112" id="PRd-Zy-Jwn"/>
                             <constraint firstItem="7rm-Gp-XQK" firstAttribute="leading" secondItem="91L-NA-lkG" secondAttribute="leading" constant="16" id="Wxm-0D-0Ex"/>
+                            <constraint firstItem="7YV-Cm-cqU" firstAttribute="top" secondItem="91L-NA-lkG" secondAttribute="top" id="ZP9-H6-RTc"/>
                             <constraint firstItem="91L-NA-lkG" firstAttribute="trailing" secondItem="iZm-2p-V6L" secondAttribute="trailing" constant="16" id="aNx-l7-XLy"/>
                             <constraint firstAttribute="trailing" secondItem="oeY-13-LfM" secondAttribute="trailing" id="eCU-Pm-kl3"/>
                             <constraint firstItem="iZm-2p-V6L" firstAttribute="top" secondItem="7rm-Gp-XQK" secondAttribute="bottom" constant="8" id="hWw-6h-PSE"/>
                             <constraint firstItem="iZm-2p-V6L" firstAttribute="leading" secondItem="91L-NA-lkG" secondAttribute="leading" constant="16" id="k94-ZR-bHq"/>
+                            <constraint firstItem="7YV-Cm-cqU" firstAttribute="trailing" secondItem="oeY-13-LfM" secondAttribute="trailing" id="kHm-4v-YlK"/>
+                            <constraint firstItem="7YV-Cm-cqU" firstAttribute="leading" secondItem="oeY-13-LfM" secondAttribute="leading" id="oWc-rC-gRf"/>
                             <constraint firstItem="7rm-Gp-XQK" firstAttribute="top" secondItem="oeY-13-LfM" secondAttribute="bottom" constant="8" id="xVl-2q-cOB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="91L-NA-lkG"/>
@@ -159,7 +169,6 @@
                     <connections>
                         <outlet property="tableView" destination="iZm-2p-V6L" id="cXx-iv-EaQ"/>
                         <outlet property="testLabel" destination="hH2-ud-DM3" id="G1o-z6-vf5"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="loginViewSegue" id="h5f-6Y-9Id"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWz-7u-kxx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -267,10 +276,12 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="t69-sH-mJH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jib-gA-0FZ">
+                    <tabBar key="tabBar" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="jib-gA-0FZ">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" name="colorTabBar"/>
+                        <color key="selectedImageTintColor" name="tintTabBar"/>
                     </tabBar>
                     <connections>
                         <segue destination="0VR-cX-o5h" kind="relationship" relationship="viewControllers" id="DSk-c5-R6b"/>
@@ -336,5 +347,14 @@
         <image name="diente" width="1600" height="1600"/>
         <image name="home" width="37.5" height="37.5"/>
         <image name="patients" width="37.5" height="37.5"/>
+        <namedColor name="Color">
+            <color red="0.62745098039215685" green="0.92941176470588238" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="colorTabBar">
+            <color red="0.92156862745098034" green="1" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tintTabBar">
+            <color red="1" green="0.64313725490196083" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

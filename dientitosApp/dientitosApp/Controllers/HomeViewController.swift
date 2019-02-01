@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
         tableView.refreshControl = refresher
         
        guard let username =  Auth.auth().currentUser?.displayName else { return }
-        testLabel.text = "Hello doctor \(username)"
+        testLabel.text = "Hello Dr. \(username)"
 
         tableView.register(AppoinmentCellWithImage.self, forCellReuseIdentifier: cellId)
         
